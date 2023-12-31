@@ -98,6 +98,9 @@ return packer.startup(function(use)
   -- git signs plugin
   use("lewis6991/gitsigns.nvim")
 
+  -- copilot
+  use("github/copilot.vim")
+
   if packer_bootstrap then
     require("packer").sync()
   end
