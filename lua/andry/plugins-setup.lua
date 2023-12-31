@@ -101,6 +101,9 @@ return packer.startup(function(use)
   -- copilot
   use("github/copilot.vim")
 
+  -- hologram for images in nvim
+  use("edluffy/hologram.nvim")
+
   if packer_bootstrap then
     require("packer").sync()
   end
