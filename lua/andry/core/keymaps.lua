@@ -1,5 +1,14 @@
 vim.g.mapleader = " "
 
+local function toggleNvimTreeFocus()
+    local nvimTreeBufType = vim.api.nvim_buf_get_option(0, 'filetype')
+    if nvimTreeBufType == 'NvimTree' then
+        vim.cmd('wincmd p')  -- Switch to the previous window
+    else
+        vim.cmd('NvimTreeFocus')  -- Focus on Nvim Tree
+    end
+end
+
 local keymap = vim.keymap
 -- keymap.set("i", "jk", "<ESC>") not gonna use this, but it just means that in insert mode, pressing jk will act as pressing the escape key 
 
@@ -22,6 +31,7 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- NvimTreeToggle
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+keymap.set("n", "<leader>k", toggleNvimTreeFocus, { silent = true, noremap = true })
 
 -- Plugin keymaps
 keymap.set("n", "<leader>i", ":PackerInstall<CR>")
@@ -34,3 +44,5 @@ keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
   
 
+-- easymotion 
+keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-w)", { silent = true })

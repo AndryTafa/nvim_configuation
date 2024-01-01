@@ -104,6 +104,9 @@ return packer.startup(function(use)
   -- hologram for images in nvim
   use("edluffy/hologram.nvim")
 
+  -- easymotion
+  use("easymotion/vim-easymotion")
+
   if packer_bootstrap then
     require("packer").sync()
   end
