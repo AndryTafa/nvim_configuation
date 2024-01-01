@@ -7,6 +7,10 @@ end
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.api.nvim_create_autocmd("VimEnter", {
+    command = "NvimTreeOpen"
+})
+
 nvimtree.setup({
   renderer = {
     icons = {
