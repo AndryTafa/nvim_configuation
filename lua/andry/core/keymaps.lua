@@ -13,6 +13,7 @@ local keymap = vim.keymap
 -- keymap.set("i", "jk", "<ESC>") not gonna use this, but it just means that in insert mode, pressing jk will act as pressing the escape key 
 
 keymap.set('n', 'x', '"_x', { noremap = true, silent = true }) -- in normal mode, deleting character won't copy to register
+keymap.set("n", "<leader>w", ":wa<CR>", { noremap = true, silent = true }) -- Keybinding to save all buffers
 
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
