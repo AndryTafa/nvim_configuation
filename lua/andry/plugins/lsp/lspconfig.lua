@@ -43,6 +43,12 @@ local on_attach = function(client, bufnr)
       group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
     })
   end
+
+  if client.name == "tsserver" then
+    keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
+    keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
+    keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
+  end
 end
 
 -- used to enable autocompletion
