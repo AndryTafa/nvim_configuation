@@ -107,6 +107,9 @@ return packer.startup(function(use)
   -- easymotion
   use("easymotion/vim-easymotion")
 
+  -- inline colours
+  use("NvChad/nvim-colorizer.lua")
+
   if packer_bootstrap then
     require("packer").sync()
   end

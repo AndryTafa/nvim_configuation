@@ -15,7 +15,7 @@ local keymap = vim.keymap
 keymap.set('n', 'x', '"_x', { noremap = true, silent = true }) -- in normal mode, deleting character won't copy to register
 keymap.set("n", "<leader>w", ":wa<CR>", { noremap = true, silent = true }) -- Keybinding to save all buffers
 keymap.set("n", "<leader>h", ":noh<CR>", { noremap = true, silent = true }) -- Add a keybinding to clear search highlights
-keymap.set("n", "<leader><Tab>", ":b#<CR>", { noremap = true, silent = true }) -- Keybinding to switch to the last used buffer
+keymap.set("n", "<leader>l", ":b#<CR>", { noremap = true, silent = true }) -- Keybinding to switch to the last used buffer
 
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
