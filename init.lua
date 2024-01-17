@@ -1,8 +1,8 @@
 require("andry.plugins-setup") -- should be at the top
 require("andry.core.options")
 require("andry.core.keymaps")
-require("andry.core.colorscheme")
 require("andry.plugins.comment")
+require("andry.core.colorscheme")
 require("andry.plugins.nvim-tree")
 require("andry.plugins.lualine")
 require("andry.plugins.telescope")

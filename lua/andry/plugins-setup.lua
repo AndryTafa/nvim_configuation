@@ -29,6 +29,8 @@ return packer.startup(function(use)
 
   -- preferred colour scheme
   use("bluz71/vim-nightfly-guicolors")
+  use('olimorris/onedark.nvim')
+  vim.cmd("colorscheme onedark_vivid")
 
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator") -- note: for some reason this isn't working
