@@ -18,6 +18,10 @@ vim.cmd([[
   augroup end
 ]])
 
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     command = "TZAtaraxis"
+-- })
+
 local status, packer = pcall(require, "packer")
 if not status then
   return
@@ -30,7 +34,6 @@ return packer.startup(function(use)
   -- preferred colour scheme
   use("bluz71/vim-nightfly-guicolors")
   use('olimorris/onedark.nvim')
-  vim.cmd("colorscheme onedark_vivid")
 
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator") -- note: for some reason this isn't working
@@ -38,20 +41,20 @@ return packer.startup(function(use)
   use("szw/vim-maximizer") -- maximizes and restores current window
 
   -- essential plugins
-   use("tpope/vim-surround")
-   use("vim-scripts/ReplaceWithRegister")
+  use("tpope/vim-surround")
+  use("vim-scripts/ReplaceWithRegister")
 
-   -- commenting with gc
-   use("numToStr/Comment.nvim")
+  -- commenting with gc
+  use("numToStr/Comment.nvim")
 
-   -- file explorer
-   use("nvim-tree/nvim-tree.lua")
+  -- file explorer
+  use("nvim-tree/nvim-tree.lua")
 
-   -- nerd font icons 
-   use("ryanoasis/vim-devicons")
+  -- nerd font icons 
+  use("ryanoasis/vim-devicons")
 
    -- icons
-   use("kyazdani42/nvim-web-devicons")
+  use("kyazdani42/nvim-web-devicons")
 
    -- statusLine
   use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true } }
@@ -61,9 +64,9 @@ return packer.startup(function(use)
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
 
   -- auto completion
-   use("hrsh7th/nvim-cmp")
-   use("hrsh7th/cmp-buffer")
-   use("hrsh7th/cmp-path")
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
 
   -- snippets
   use("L3MON4D3/LuaSnip")
@@ -112,6 +115,8 @@ return packer.startup(function(use)
   -- inline colours
   use("NvChad/nvim-colorizer.lua")
 
+  -- true zen
+  use("pocco81/true-zen.nvim")
   if packer_bootstrap then
     require("packer").sync()
   end
