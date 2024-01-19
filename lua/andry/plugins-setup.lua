@@ -117,6 +117,10 @@ return packer.startup(function(use)
 
   -- true zen
   use("pocco81/true-zen.nvim")
+
+  -- jdtls
+  use("mfussenegger/nvim-jdtls")
+
   if packer_bootstrap then
     require("packer").sync()
   end
