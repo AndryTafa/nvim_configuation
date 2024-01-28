@@ -30,6 +30,8 @@ end
 return packer.startup(function(use)
   use("wbthomason/packer.nvim")
   use("nvim-lua/plenary.nvim")
+  use("nvim-lua/popup.nvim")
+  use("nvim-telescope/telescope-media-files.nvim")
 
   -- preferred colour scheme
   use("bluz71/vim-nightfly-guicolors")
@@ -118,13 +120,24 @@ return packer.startup(function(use)
   use("edluffy/hologram.nvim")
 
   -- easymotion
-  use("easymotion/vim-easymotion")
+  -- use("easymotion/vim-easymotion")
+   use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+  }
 
   -- inline colours
   use("NvChad/nvim-colorizer.lua")
 
   -- true zen
   use("pocco81/true-zen.nvim")
+
+  -- true zen
+  use 'karb94/neoscroll.nvim'
+
+  -- harpoon baby 
+  use 'ThePrimeagen/harpoon'
+
   if packer_bootstrap then
     require("packer").sync()
   end

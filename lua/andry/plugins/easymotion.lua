@@ -1,6 +1,8 @@
-local setup, easymotion = pcall(require, "easymotion")
+local setup, hop = pcall(require, "hop")
 if not setup then
   return
 end
 
-easymotion.setup()
+hop.setup({
+  keys = 'etovxqpdygfblzhckisuran'
+})
