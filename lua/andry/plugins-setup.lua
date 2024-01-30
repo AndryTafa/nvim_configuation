@@ -140,6 +140,8 @@ return packer.startup(function(use)
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
   }
+  -- vim fugitive
+  use 'tpope/vim-fugitive'
 
   if packer_bootstrap then
     require("packer").sync()
