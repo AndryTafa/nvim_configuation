@@ -18,9 +18,6 @@ vim.cmd([[
   augroup end
 ]])
 
--- vim.api.nvim_create_autocmd("VimEnter", {
---     command = "TZAtaraxis"
--- })
 
 local status, packer = pcall(require, "packer")
 if not status then
