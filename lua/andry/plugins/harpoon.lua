@@ -21,7 +21,7 @@ harpoon.setup({
     excluded_filetypes = { "harpoon" },
 
     -- set marks specific to each git branch inside git repository
-    mark_branch = false,
+    mark_branch = true,
 
     -- enable tabline with harpoon marks
     tabline = false,
@@ -31,9 +31,9 @@ harpoon.setup({
 })
 
 -- adding files to the harpoon list
-vim.api.nvim_set_keymap('n', '<leader>a', '<cmd>lua require("harpoon.mark").add_file()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader><leader>a', '<cmd>lua require("harpoon.mark").add_file()<CR>', {noremap = true, silent = true})
 -- show the harpoon menu
-vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader><leader>e', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', {noremap = true, silent = true})
 
 vim.api.nvim_set_keymap('n', '<leader><leader>j', '<cmd>lua require("harpoon.ui").nav_file(1)<CR>', {noremap = true, silent = false})
 vim.api.nvim_set_keymap('n', '<leader><leader>k', '<cmd>lua require("harpoon.ui").nav_file(2)<CR>', {noremap = true, silent = false})

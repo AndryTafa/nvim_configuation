@@ -136,7 +136,10 @@ return packer.startup(function(use)
   use 'karb94/neoscroll.nvim'
 
   -- harpoon baby 
-  use 'ThePrimeagen/harpoon'
+   use {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+  }
 
   if packer_bootstrap then
     require("packer").sync()
