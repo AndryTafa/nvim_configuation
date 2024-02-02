@@ -38,3 +38,9 @@ opt.splitbelow = true
 -- misc
 opt.iskeyword:append("_")
 -- e.g. if you type dw at the beginning of hello_hello it will delete the whole thing
+
+if vim.g.neovide then
+  -- neovide font to jetbrains
+  opt.guifont = { "JetBrainsMonoNL Nerd Font Mono", ":h12" }
+  vim.g.neovide_transparency = 0.95
+end

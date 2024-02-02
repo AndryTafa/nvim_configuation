@@ -18,7 +18,6 @@ vim.cmd([[
   augroup end
 ]])
 
-
 local status, packer = pcall(require, "packer")
 if not status then
   return
@@ -37,7 +36,9 @@ return packer.startup(function(use)
   use('ellisonleao/gruvbox.nvim')
   use "EdenEast/nightfox.nvim"
   use "folke/tokyonight.nvim"
-  vim.cmd("colorscheme tokyonight-night")
+  use { "catppuccin/nvim", as = "catppuccin" }
+  -- vim.cmd("colorscheme tokyonight-night")
+  vim.cmd("colorscheme tokyonight-storm")
   -- background dark is required for gruvbox apparently
   -- vim.o.background = "dark"
   -- vim.cmd([[colorscheme gruvbox]])
@@ -133,13 +134,20 @@ return packer.startup(function(use)
   use 'karb94/neoscroll.nvim'
 
   -- harpoon baby 
-   use {
+  use {
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
   }
   -- vim fugitive
   use 'tpope/vim-fugitive'
 
+  -- use oil.nvim
+  use 'stevearc/oil.nvim'
+
+  -- use vim-illuminate
+  use 'RRethy/vim-illuminate'
+
+  use("oxfist/night-owl.nvim")
   if packer_bootstrap then
     require("packer").sync()
   end

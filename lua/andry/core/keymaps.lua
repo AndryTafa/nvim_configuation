@@ -30,8 +30,8 @@ keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 
 -- center screen after ctrl-u and ctrl-d
-keymap.set("n", "<C-d>", "<C-d>zz")
-keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 
 -- center screen after j and k
 -- keymap.set("n", "j", "jzz")
@@ -43,6 +43,9 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 -- NvimTreeToggle
 keymap.set("n", "<leader>f", ":NvimTreeToggle<CR>")
 --keymap.set("n", "<leader>k", toggleNvimTreeFocus, { silent = true, noremap = true })
+
+--oil toggle
+keymap.set("n", "<leader>oo", ":Oil<CR>")
 
 -- Plugin keymaps
 keymap.set("n", "<leader>i", ":PackerInstall<CR>")
