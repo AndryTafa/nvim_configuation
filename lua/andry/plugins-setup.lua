@@ -128,9 +128,6 @@ return packer.startup(function(use)
   use("NvChad/nvim-colorizer.lua")
 
   -- true zen
-  use("pocco81/true-zen.nvim")
-
-  -- true zen
   use 'karb94/neoscroll.nvim'
 
   -- harpoon baby 
@@ -147,7 +144,14 @@ return packer.startup(function(use)
   -- use vim-illuminate
   use 'RRethy/vim-illuminate'
 
-  use("oxfist/night-owl.nvim")
+  -- use twilight to only highlight current function
+  use("folke/twilight.nvim")
+
+  -- Lua
+  use{
+    "folke/zen-mode.nvim",
+  }
+  use 'opalmay/vim-smoothie'
   if packer_bootstrap then
     require("packer").sync()
   end

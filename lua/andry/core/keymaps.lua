@@ -30,8 +30,8 @@ keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 
 -- center screen after ctrl-u and ctrl-d
-keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
-keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+-- keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+-- keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 
 -- center screen after j and k
 -- keymap.set("n", "j", "jzz")
@@ -61,4 +61,4 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 -- keymap.set("n", "<leader>j", ":HopWord", { silent = true })
 
 -- zenmode
-keymap.set("n", "<leader>u", "<cmd>TZAtaraxis<cr>", { silent = true })
+keymap.set("n", "<leader>u", "<cmd>ZenMode<cr>", { silent = true })
