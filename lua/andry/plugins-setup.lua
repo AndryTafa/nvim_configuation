@@ -148,10 +148,12 @@ return packer.startup(function(use)
   use("folke/twilight.nvim")
 
   -- Lua
-  use{
-    "folke/zen-mode.nvim",
-  }
+  use{ "folke/zen-mode.nvim", }
+
   use 'opalmay/vim-smoothie'
+
+  use { "folke/todo-comments.nvim" }
+
   if packer_bootstrap then
     require("packer").sync()
   end
