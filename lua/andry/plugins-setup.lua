@@ -150,10 +150,15 @@ return packer.startup(function(use)
   -- Lua
   use{ "folke/zen-mode.nvim", }
 
-  use 'opalmay/vim-smoothie'
+  use { 'opalmay/vim-smoothie' }
 
   use { "folke/todo-comments.nvim" }
 
+  use {"OlegGulevskyy/better-ts-errors.nvim" }
+
+  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end }
   if packer_bootstrap then
     require("packer").sync()
   end

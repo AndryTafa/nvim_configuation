@@ -30,15 +30,14 @@ keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 
 -- center screen after ctrl-u and ctrl-d
-keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
-keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+-- keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+-- keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 -- center screen after { and }
-keymap.set("n", "{", "{zz", { noremap = true, silent = true })
-keymap.set("n", "}", "}zz", { noremap = true, silent = true })
 
 -- center screen after j and k
 -- keymap.set("n", "j", "jzz")
 -- keymap.set("n", "k", "kzz")
+
 
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
@@ -55,6 +54,7 @@ keymap.set("n", "<leader>i", ":PackerInstall<CR>")
 
 -- fuzzy finder - telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+keymap.set("n", "<leader>fz", "<cmd>Telescope find_files find_command=rg,--no-ignore,--hidden,--files<cr>")
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")

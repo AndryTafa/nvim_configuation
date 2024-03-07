@@ -43,4 +43,16 @@ if vim.g.neovide then
   -- neovide font to jetbrains
   opt.guifont = { "JetBrainsMonoNL Nerd Font Mono", ":h12" }
   vim.g.neovide_transparency = 0.95
+
+  -- Copy
+  vim.api.nvim_set_keymap('n', '<C-c>', '"+y', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('v', '<C-c>', '"+y', { noremap = true, silent = true })
+
+  -- Cut
+  vim.api.nvim_set_keymap('n', '<C-x>', '"+d', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('v', '<C-x>', '"+d', { noremap = true, silent = true })
+
+  -- Paste
+  vim.api.nvim_set_keymap('n', '<C-v>', '"+p', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
 end
