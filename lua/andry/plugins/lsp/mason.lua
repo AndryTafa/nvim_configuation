@@ -28,6 +28,7 @@ mason_lspconfig.setup({
     "svelte",
     "yamlls",
     "lemminx",
+    "gopls",
   },
   automatic_installation = true,
 })

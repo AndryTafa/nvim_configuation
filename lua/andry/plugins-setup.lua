@@ -156,6 +156,10 @@ return packer.startup(function(use)
 
   use {"OlegGulevskyy/better-ts-errors.nvim" }
 
+  use "ThePrimeagen/vim-be-good"
+
+  use 'm4xshen/hardtime.nvim'
+
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end }
