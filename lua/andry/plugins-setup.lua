@@ -118,11 +118,12 @@ return packer.startup(function(use)
   use("edluffy/hologram.nvim")
 
   -- easymotion
-  -- use("easymotion/vim-easymotion")
-   use {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- optional but strongly recommended
-  }
+  use("easymotion/vim-easymotion")
+  
+  -- use {
+  --   'phaazon/hop.nvim',
+  --   branch = 'v2', -- optional but strongly recommended
+  -- }
 
   -- inline colours
   use("NvChad/nvim-colorizer.lua")
@@ -150,8 +151,6 @@ return packer.startup(function(use)
   -- Lua
   use{ "folke/zen-mode.nvim", }
 
-  use { 'opalmay/vim-smoothie' }
-
   use { "folke/todo-comments.nvim" }
 
   use {"OlegGulevskyy/better-ts-errors.nvim" }
@@ -159,6 +158,8 @@ return packer.startup(function(use)
   use "ThePrimeagen/vim-be-good"
 
   use 'm4xshen/hardtime.nvim'
+
+  use "lukas-reineke/indent-blankline.nvim"
 
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()

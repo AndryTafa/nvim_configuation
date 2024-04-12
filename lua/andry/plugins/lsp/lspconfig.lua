@@ -73,6 +73,24 @@ typescript.setup({
   }
 })
 
+lspconfig["kotlin_language_server"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+lspconfig["gopls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+})
+
 lspconfig["cssls"].setup({
   capabilities = capabilities,
   on_attach = on_attach

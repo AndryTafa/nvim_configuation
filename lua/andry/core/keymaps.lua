@@ -30,8 +30,8 @@ keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 
 -- center screen after ctrl-u and ctrl-d
--- keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
--- keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 -- center screen after { and }
 
 -- center screen after j and k
@@ -43,7 +43,7 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- NvimTreeToggle
-keymap.set("n", "<leader>f", ":NvimTreeToggle<CR>")
+keymap.set("n", "<leader>fi", ":NvimTreeToggle<CR>")
 --keymap.set("n", "<leader>k", toggleNvimTreeFocus, { silent = true, noremap = true })
 
 --oil toggle
@@ -55,13 +55,15 @@ keymap.set("n", "<leader>i", ":PackerInstall<CR>")
 -- fuzzy finder - telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 keymap.set("n", "<leader>fz", "<cmd>Telescope find_files find_command=rg,--no-ignore,--hidden,--files<cr>")
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+keymap.set("n", "<leader>fa", "<cmd>Telescope lsp_references<cr>") -- fa for find all (references) instead of find refernce because it rolls better
+keymap.set("n", "<leader>fd", "<cmd>Telescope lsp_definitions<cr>") -- fd for find definition
+keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 
--- easymotion 
--- keymap.set("n", "<leader>j", ":HopWord", { silent = true })
+-- easymotion
+vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-w)", { silent = true })
 
 -- zenmode
 keymap.set("n", "<leader>u", "<cmd>ZenMode<cr>", { silent = true })

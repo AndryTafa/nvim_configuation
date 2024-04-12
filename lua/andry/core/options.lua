@@ -1,10 +1,10 @@
-local opt = vim.opt -- for conciscness
+local opt = vim.opt -- for conciseness
 
 -- line number
 opt.relativenumber = true
 opt.number = true
 
--- tabs and indentation
+-- default tabs and indentation
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
@@ -37,10 +37,10 @@ opt.splitbelow = true
 
 -- misc
 opt.iskeyword:append("_")
--- e.g. if you type dw at the beginning of hello_hello it will delete the whole thing
+-- e.g., if you type dw at the beginning of hello_hello it will delete the whole thing
 
 if vim.g.neovide then
-  -- neovide font to jetbrains
+  -- neovide settings
   opt.guifont = { "JetBrainsMonoNL Nerd Font Mono", ":h12" }
   vim.g.neovide_transparency = 0.95
 
@@ -56,3 +56,36 @@ if vim.g.neovide then
   vim.api.nvim_set_keymap('n', '<C-v>', '"+p', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('i', '<C-v>', '<C-r>+', { noremap = true, silent = true })
 end
+
+-- Specific settings for Go files using autocommand
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "kotlin",
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "xml",
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+  end,
+})
