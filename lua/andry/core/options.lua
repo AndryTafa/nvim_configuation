@@ -20,6 +20,9 @@ opt.smartcase = true
 -- cursor line
 opt.cursorline = true
 
+-- minimal number of screen lines to keep above and below the cursor
+opt.scrolloff = 15
+
 -- appearance
 opt.termguicolors = true
 opt.background = "dark"
@@ -75,7 +78,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "kotlin",
+  pattern = "kt",
   callback = function()
     vim.opt_local.shiftwidth = 4
     vim.opt_local.tabstop = 4

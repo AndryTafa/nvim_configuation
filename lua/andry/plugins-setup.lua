@@ -112,14 +112,15 @@ return packer.startup(function(use)
   use("lewis6991/gitsigns.nvim")
 
   -- copilot
-  use("github/copilot.vim")
+  -- use("github/copilot.vim")
 
   -- hologram for images in nvim
   use("edluffy/hologram.nvim")
 
   -- easymotion
   use("easymotion/vim-easymotion")
-  
+  use 'rlane/pounce.nvim'
+
   -- use {
   --   'phaazon/hop.nvim',
   --   branch = 'v2', -- optional but strongly recommended
@@ -160,7 +161,7 @@ return packer.startup(function(use)
   use 'm4xshen/hardtime.nvim'
 
   use "lukas-reineke/indent-blankline.nvim"
-
+  use('Aasim-A/scrollEOF.nvim')
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end }
