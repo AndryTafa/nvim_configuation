@@ -21,7 +21,7 @@ opt.smartcase = true
 opt.cursorline = true
 
 -- minimal number of screen lines to keep above and below the cursor
-opt.scrolloff = 15
+opt.scrolloff = 10
 
 -- appearance
 opt.termguicolors = true
