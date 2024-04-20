@@ -29,6 +29,9 @@ mason_lspconfig.setup({
     "yamlls",
     "lemminx",
     "gopls",
+    "templ",
+    "htmx-lsp",
+    "htmx",
     "kotlin_language_server",
   },
   automatic_installation = true,
@@ -38,6 +41,7 @@ mason_null_ls.setup({
   ensure_installed = {
     "prettier",
     "stylua",
+    "htmx-lsp",
     "eslint_d",
   },
    automatic_installation = true,

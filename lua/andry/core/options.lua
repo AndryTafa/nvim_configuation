@@ -24,7 +24,7 @@ opt.cursorline = true
 opt.scrolloff = 10
 
 -- appearance
-opt.termguicolors = true
+-- opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 
@@ -33,6 +33,9 @@ opt.backspace = "indent,eol,start"
 
 -- clipboard
 opt.clipboard:append("unnamedplus")
+
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
 
 -- split windows
 opt.splitright = true
@@ -44,8 +47,8 @@ opt.iskeyword:append("_")
 
 if vim.g.neovide then
   -- neovide settings
-  opt.guifont = { "JetBrainsMonoNL Nerd Font Mono", ":h12" }
-  vim.g.neovide_transparency = 0.95
+  opt.guifont = { "JetBrainsMonoNL Nerd Font Mono", ":h15" }
+  -- vim.g.neovide_transparency = 0.95
 
   -- Copy
   vim.api.nvim_set_keymap('n', '<C-c>', '"+y', { noremap = true, silent = true })

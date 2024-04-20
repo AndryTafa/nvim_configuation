@@ -1,4 +1,4 @@
-local lspconfig_status, lspconfig = pcall(require, "lspconfig") 
+local lspconfig_status, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status then
   return
 end
@@ -57,10 +57,12 @@ end
 -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local capabilities = cmp_nvm_lsp.default_capabilities()
 
+
 lspconfig["html"].setup({
   capabilities = capabilities,
   on_attach = on_attach
 })
+
 lspconfig["svelte"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -91,12 +93,27 @@ lspconfig["gopls"].setup({
   },
 })
 
+lspconfig["templ"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach
+})
+
 lspconfig["cssls"].setup({
   capabilities = capabilities,
   on_attach = on_attach
 })
 
 lspconfig["tailwindcss"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach
+})
+
+lspconfig["htmx-lsp"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach
+})
+
+lspconfig["htmx"].setup({
   capabilities = capabilities,
   on_attach = on_attach
 })
@@ -121,3 +138,4 @@ lspconfig["lua_ls"].setup({
     },
   },
 })
+

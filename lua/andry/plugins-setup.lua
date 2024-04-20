@@ -38,10 +38,11 @@ return packer.startup(function(use)
   use "folke/tokyonight.nvim"
   use { "catppuccin/nvim", as = "catppuccin" }
   -- vim.cmd("colorscheme tokyonight-night")
-  vim.cmd("colorscheme tokyonight-storm")
+  --vim.cmd("colorscheme rose-pine-main")
   -- background dark is required for gruvbox apparently
-  -- vim.o.background = "dark"
+  vim.o.background = "dark"
   -- vim.cmd([[colorscheme gruvbox]])
+  vim.cmd("colorscheme onedark_dark")
 
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator") -- note: for some reason this isn't working
@@ -161,10 +162,13 @@ return packer.startup(function(use)
   use 'm4xshen/hardtime.nvim'
 
   use "lukas-reineke/indent-blankline.nvim"
+
   use('Aasim-A/scrollEOF.nvim')
+
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end }
+
   if packer_bootstrap then
     require("packer").sync()
   end
