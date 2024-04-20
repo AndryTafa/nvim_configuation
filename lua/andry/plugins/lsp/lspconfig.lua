@@ -60,7 +60,14 @@ local capabilities = cmp_nvm_lsp.default_capabilities()
 
 lspconfig["html"].setup({
   capabilities = capabilities,
-  on_attach = on_attach
+  on_attach = on_attach,
+  filetypes = { "html", "templ" },
+})
+
+lspconfig["templ"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "html", "templ" },
 })
 
 lspconfig["svelte"].setup({
@@ -105,12 +112,15 @@ lspconfig["cssls"].setup({
 
 lspconfig["tailwindcss"].setup({
   capabilities = capabilities,
-  on_attach = on_attach
+  on_attach = on_attach,
+  filetypes = { "templ", "astro", "javascript", "typescript", "react", "svelte", "vue" },
+  init_options = { userLanguages = { templ = "html" } },
 })
 
 lspconfig["htmx"].setup({
   capabilities = capabilities,
-  on_attach = on_attach
+  on_attach = on_attach,
+  filetypes = { "html", "templ" },
 })
 
 -- configure lua server (with special settings)

@@ -165,6 +165,8 @@ return packer.startup(function(use)
 
   use('Aasim-A/scrollEOF.nvim')
 
+  use 'joerdav/templ.vim'
+
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end }
