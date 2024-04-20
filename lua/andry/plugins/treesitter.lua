@@ -13,7 +13,10 @@ treesitter.setup({
     enable_rename = true,
     enable_close = true,
     enable_close_on_slash = true,
-    filetypes = { "html" , "xml", "templ" },
+    filetypes = {
+      'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
+      'css', 'lua', 'xml', 'php', 'markdown', 'templ', 'go'
+    },
   },
   ensure_installed = {
     "json",
@@ -39,7 +42,7 @@ treesitter.setup({
     "vue",
     "xml",
   },
-  auto_install = true
+  auto_install = true,
 })
 
 vim.filetype.add({

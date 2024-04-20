@@ -103,3 +103,5 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.tabstop = 4
   end,
 })
+
+vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.templ'
