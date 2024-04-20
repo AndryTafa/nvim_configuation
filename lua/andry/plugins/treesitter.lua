@@ -34,3 +34,9 @@ treesitter.setup({
   },
   auto_install = true
 })
+
+vim.filetype.add({
+    extension = {
+        templ = "templ",
+    },
+})

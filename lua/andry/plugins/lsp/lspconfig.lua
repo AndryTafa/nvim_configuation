@@ -108,11 +108,6 @@ lspconfig["tailwindcss"].setup({
   on_attach = on_attach
 })
 
-lspconfig["htmx-lsp"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach
-})
-
 lspconfig["htmx"].setup({
   capabilities = capabilities,
   on_attach = on_attach
