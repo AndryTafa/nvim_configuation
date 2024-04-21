@@ -14,7 +14,7 @@ local keymap = vim.keymap
 -- keymap.set("i", "jk", "<ESC>") not gonna use this, but it just means that in insert mode, pressing jk will act as pressing the escape key 
 
 keymap.set('n', 'x', '"_x', { noremap = true, silent = true }) -- in normal mode, deleting character won't copy to register
-keymap.set("n", "<leader>w", ":wa<CR>", { noremap = true, silent = true }) -- Keybinding to save all buffers
+keymap.set('n', '<Leader>w', ':lua indent_and_save_all()<CR>', { noremap = true, silent = true })
 keymap.set("n", "<leader>h", ":noh<CR>", { noremap = true, silent = true }) -- Add a keybinding to clear search highlights
 keymap.set("n", "<leader>l", ":b#<CR>", { noremap = true, silent = true }) -- Keybinding to switch to the last used buffer
 keymap.set("n", "<leader>k", "0w", { noremap = true, silent = true }) -- Keybinding to switch to the last used buffer
@@ -55,15 +55,24 @@ keymap.set("n", "<leader>i", ":PackerInstall<CR>")
 -- fuzzy finder - telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 keymap.set("n", "<leader>fz", "<cmd>Telescope find_files find_command=rg,--no-ignore,--hidden,--files<cr>")
-keymap.set("n", "<leader>fa", "<cmd>Telescope lsp_references<cr>") -- fa for find all (references) instead of find refernce because it rolls better
-keymap.set("n", "<leader>fd", "<cmd>Telescope lsp_definitions<cr>") -- fd for find definition
+keymap.set("n", "fa", "<cmd>Telescope lsp_references<cr>") -- fa for find all (references) instead of find refernce because it rolls better
+keymap.set("n", "fd", "<cmd>Telescope lsp_definitions<cr>") -- fd for find definition
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 
 -- easymotion
-vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-w)", { silent = true })
+vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-e)", { silent = true })
 
--- zenmode
-keymap.set("n", "<leader>u", "<cmd>ZenMode<cr>", { silent = true })
+-- Set the keymap to call the globally defined function
+function _G.indent_and_save_all()
+    -- Save the current view state
+    local view_state = vim.fn.winsaveview()
+    -- Re-indent the entire file without mappings
+    vim.cmd('normal! gg=G')
+    -- Restore the view state
+    vim.fn.winrestview(view_state)
+    -- Save all buffers
+    vim.cmd('wa')
+end
