@@ -1,15 +1,5 @@
 vim.g.mapleader = " "
 
--- local function toggleNvimTreeFocus()
---     local nvimTreeBufType = vim.api.nvim_buf_get_option(0, 'filetype')
---     if nvimTreeBufType == 'NvimTree' then
---         vim.cmd('wincmd p')  -- Switch to the previous window
---     else
---         vim.cmd('NvimTreeFocus')  -- Focus on Nvim Tree
---     end
--- end
-
-
 local keymap = vim.keymap
 -- keymap.set("i", "jk", "<ESC>") not gonna use this, but it just means that in insert mode, pressing jk will act as pressing the escape key 
 
@@ -33,11 +23,6 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 -- center screen after { and }
-
--- center screen after j and k
--- keymap.set("n", "j", "jzz")
--- keymap.set("n", "k", "kzz")
-
 
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
@@ -67,12 +52,12 @@ vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-e)", { silent = true })
 
 -- Set the keymap to call the globally defined function
 function _G.indent_and_save_all()
-    -- Save the current view state
-    local view_state = vim.fn.winsaveview()
-    -- Re-indent the entire file without mappings
-    vim.cmd('normal! gg=G')
-    -- Restore the view state
-    vim.fn.winrestview(view_state)
-    -- Save all buffers
-    vim.cmd('wa')
+  -- Save the current view state
+  local view_state = vim.fn.winsaveview()
+  -- Re-indent the entire file without mappings
+  vim.cmd('normal! gg=G')
+  -- Restore the view state
+  vim.fn.winrestview(view_state)
+  -- Save all buffers
+  vim.cmd('wa')
 end
