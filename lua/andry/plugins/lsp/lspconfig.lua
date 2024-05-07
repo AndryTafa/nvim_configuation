@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
   keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
   keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
   keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
-  keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
+  keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show diagnostics for line
   keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
   keymap.set("n", "<leader>pe", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
   keymap.set("n", "<leader>ne", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
@@ -83,8 +83,8 @@ typescript.setup({
 })
 
 lspconfig["kotlin_language_server"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 lspconfig["gopls"].setup({
@@ -103,6 +103,12 @@ lspconfig["gopls"].setup({
 lspconfig["templ"].setup({
   capabilities = capabilities,
   on_attach = on_attach
+})
+
+lspconfig["tsserver"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "js", "ts" },
 })
 
 lspconfig["cssls"].setup({

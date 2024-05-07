@@ -4,7 +4,8 @@ local keymap = vim.keymap
 -- keymap.set("i", "jk", "<ESC>") not gonna use this, but it just means that in insert mode, pressing jk will act as pressing the escape key 
 
 keymap.set('n', 'x', '"_x', { noremap = true, silent = true }) -- in normal mode, deleting character won't copy to register
-keymap.set('n', '<Leader>w', ':lua indent_and_save_all()<CR>', { noremap = true, silent = true })
+keymap.set('n', '<Leader>w', ':wa<CR>', { noremap = true, silent = true })
+keymap.set('n', '<Leader>r', ':lua indent_file()<CR>', { noremap = true, silent = true })
 keymap.set("n", "<leader>h", ":noh<CR>", { noremap = true, silent = true }) -- Add a keybinding to clear search highlights
 keymap.set("n", "<leader>l", ":b#<CR>", { noremap = true, silent = true }) -- Keybinding to switch to the last used buffer
 keymap.set("n", "<leader>k", "0w", { noremap = true, silent = true }) -- Keybinding to switch to the last used buffer
@@ -51,13 +52,11 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-e)", { silent = true })
 
 -- Set the keymap to call the globally defined function
-function _G.indent_and_save_all()
+function _G.indent_file()
   -- Save the current view state
   local view_state = vim.fn.winsaveview()
   -- Re-indent the entire file without mappings
   vim.cmd('normal! gg=G')
   -- Restore the view state
   vim.fn.winrestview(view_state)
-  -- Save all buffers
-  vim.cmd('wa')
 end

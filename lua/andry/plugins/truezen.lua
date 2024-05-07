@@ -50,3 +50,7 @@ zenmode.setup({
   on_close = function()
   end,
 })
+
+vim.cmd [[
+  autocmd VimEnter * TwilightDisable
+]]

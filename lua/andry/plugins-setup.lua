@@ -13,8 +13,8 @@ local packer_bootstrap = ensure_packer()
 
 vim.cmd([[
   augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -41,8 +41,8 @@ return packer.startup(function(use)
   --vim.cmd("colorscheme rose-pine-main")
   -- background dark is required for gruvbox apparently
   vim.o.background = "dark"
-  -- vim.cmd([[colorscheme gruvbox]])
-  vim.cmd("colorscheme onedark_dark")
+  vim.cmd([[colorscheme gruvbox]])
+  -- vim.cmd("colorscheme onedark_dark")
 
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator") -- note: for some reason this isn't working
@@ -62,10 +62,10 @@ return packer.startup(function(use)
   -- nerd font icons 
   use("ryanoasis/vim-devicons")
 
-   -- icons
+  -- icons
   use("kyazdani42/nvim-web-devicons")
 
-   -- statusLine
+  -- statusLine
   use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true } }
 
   -- fuzzy finding
@@ -147,9 +147,6 @@ return packer.startup(function(use)
   -- use vim-illuminate
   use 'RRethy/vim-illuminate'
 
-  -- use twilight to only highlight current function
-  use("folke/twilight.nvim")
-
   -- Lua
   use{ "folke/zen-mode.nvim", }
 
@@ -170,6 +167,9 @@ return packer.startup(function(use)
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end }
+
+  use 'FraserLee/ScratchPad'
+  vim.g.scratchpad_textwidth = 80
 
   if packer_bootstrap then
     require("packer").sync()

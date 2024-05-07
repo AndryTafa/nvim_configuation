@@ -18,13 +18,13 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- cursor line
-opt.cursorline = true
+opt.cursorline = false
 
 -- minimal number of screen lines to keep above and below the cursor
 opt.scrolloff = 10
 
 -- appearance
--- opt.termguicolors = true
+opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 
