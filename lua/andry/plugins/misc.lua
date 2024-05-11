@@ -2,3 +2,7 @@
 
 
 require('scrollEOF').setup()
+
+require("newpaper").setup({
+    style = "light"
+})

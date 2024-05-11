@@ -36,12 +36,15 @@ return packer.startup(function(use)
   use('ellisonleao/gruvbox.nvim')
   use "EdenEast/nightfox.nvim"
   use "folke/tokyonight.nvim"
+  use "scottmckendry/cyberdream.nvim"
+
+  use "yorik1984/newpaper.nvim"
   use { "catppuccin/nvim", as = "catppuccin" }
   -- vim.cmd("colorscheme tokyonight-night")
   --vim.cmd("colorscheme rose-pine-main")
   -- background dark is required for gruvbox apparently
-  vim.o.background = "dark"
-  vim.cmd([[colorscheme gruvbox]])
+  vim.o.background = "light"
+  vim.cmd("colorscheme newpaper")
   -- vim.cmd("colorscheme onedark_dark")
 
   -- tmux & split window navigation
