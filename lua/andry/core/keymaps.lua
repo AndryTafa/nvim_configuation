@@ -51,6 +51,9 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 -- easymotion
 vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-e)", { silent = true })
 
+vim.api.nvim_set_keymap('n', '<leader><leader>1', ':colorscheme catppuccin-macchiato<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader><leader>2', ':colorscheme catppuccin-latte<CR>', { noremap = true, silent = true })
+
 -- Set the keymap to call the globally defined function
 function _G.indent_file()
   -- Save the current view state

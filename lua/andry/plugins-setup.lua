@@ -37,14 +37,16 @@ return packer.startup(function(use)
   use "EdenEast/nightfox.nvim"
   use "folke/tokyonight.nvim"
   use "scottmckendry/cyberdream.nvim"
+  use "sainnhe/edge"
 
   use "yorik1984/newpaper.nvim"
   use { "catppuccin/nvim", as = "catppuccin" }
   -- vim.cmd("colorscheme tokyonight-night")
   --vim.cmd("colorscheme rose-pine-main")
   -- background dark is required for gruvbox apparently
-  vim.o.background = "light"
-  vim.cmd("colorscheme newpaper")
+  vim.o.background = "dark"
+  vim.cmd([[ colorscheme catppuccin-latte ]])
+
   -- vim.cmd("colorscheme onedark_dark")
 
   -- tmux & split window navigation
@@ -166,6 +168,8 @@ return packer.startup(function(use)
   use('Aasim-A/scrollEOF.nvim')
 
   use 'joerdav/templ.vim'
+
+  use 'mvllow/modes.nvim'
 
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
