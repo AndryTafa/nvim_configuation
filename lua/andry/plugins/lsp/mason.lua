@@ -28,10 +28,10 @@ mason_lspconfig.setup({
     "tailwindcss",
     "svelte",
     "yamlls",
-    "lemminx",
     "gopls",
     "htmx",
     "kotlin_language_server",
+    -- "lemminx",
   },
   automatic_installation = true,
 })

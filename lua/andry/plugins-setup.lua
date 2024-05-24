@@ -51,7 +51,6 @@ return packer.startup(function(use)
 
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator") -- note: for some reason this isn't working
-  use("wfxr/minimap.vim")
   use("szw/vim-maximizer") -- maximizes and restores current window
 
   -- essential plugins
@@ -177,6 +176,7 @@ return packer.startup(function(use)
 
   use 'FraserLee/ScratchPad'
   vim.g.scratchpad_textwidth = 80
+  use 'mfussenegger/nvim-dap'
 
   if packer_bootstrap then
     require("packer").sync()
