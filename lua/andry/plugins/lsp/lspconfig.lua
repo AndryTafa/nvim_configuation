@@ -105,6 +105,18 @@ lspconfig["templ"].setup({
   on_attach = on_attach
 })
 
+vim.filetype.add({
+  pattern = {
+    ['.*%.blade%.php'] = 'php'
+  },
+})
+
+lspconfig["intelephense"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "php" },
+})
+
 lspconfig["tsserver"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -119,7 +131,7 @@ lspconfig["cssls"].setup({
 lspconfig["tailwindcss"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "templ", "astro", "javascript", "typescript", "react", "svelte", "vue" },
+  filetypes = { "templ", "astro", "javascript", "typescript", "react", "svelte", "vue", "php" },
   init_options = { userLanguages = { templ = "html" } },
 })
 

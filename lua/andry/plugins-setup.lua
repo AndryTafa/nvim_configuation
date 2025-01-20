@@ -31,6 +31,7 @@ return packer.startup(function(use)
 
   -- preferred colour scheme
   use("bluz71/vim-nightfly-guicolors")
+  use("bluz71/vim-moonfly-colors")
   use('olimorris/onedark.nvim')
   use('rose-pine/neovim')
   use('ellisonleao/gruvbox.nvim')
@@ -38,16 +39,10 @@ return packer.startup(function(use)
   use "folke/tokyonight.nvim"
   use "scottmckendry/cyberdream.nvim"
   use "sainnhe/edge"
+  use "shaunsingh/nord.nvim"
 
   use "yorik1984/newpaper.nvim"
   use { "catppuccin/nvim", as = "catppuccin" }
-  -- vim.cmd("colorscheme tokyonight-night")
-  --vim.cmd("colorscheme rose-pine-main")
-  -- background dark is required for gruvbox apparently
-  vim.o.background = "dark"
-  vim.cmd([[ colorscheme catppuccin-latte ]])
-
-  -- vim.cmd("colorscheme onedark_dark")
 
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator") -- note: for some reason this isn't working
@@ -169,6 +164,23 @@ return packer.startup(function(use)
   use 'joerdav/templ.vim'
 
   use 'mvllow/modes.nvim'
+
+  use 'pteroctopus/faster.nvim'
+
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  })
+
+  use({
+    "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+  })
 
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()

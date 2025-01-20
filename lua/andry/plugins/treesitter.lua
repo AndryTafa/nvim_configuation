@@ -15,7 +15,7 @@ treesitter.setup({
     enable_close_on_slash = true,
     filetypes = {
       'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
-      'css', 'lua', 'xml', 'php', 'markdown', 'templ', 'go'
+      'css', 'lua', 'xml', 'php', 'markdown', 'templ', 'go', 'php', 'blade', 'blade.php'
     },
   },
   ensure_installed = {

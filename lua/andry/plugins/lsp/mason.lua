@@ -29,6 +29,7 @@ mason_lspconfig.setup({
     "svelte",
     "yamlls",
     "gopls",
+    "intelephense",
     "htmx",
     "kotlin_language_server",
     -- "lemminx",
