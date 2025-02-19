@@ -79,4 +79,4 @@ require("rose-pine").setup({
 });
 
 vim.o.background = "dark"
-vim.cmd("colorscheme rose-pine-main")
+vim.cmd("colorscheme gruvbox")

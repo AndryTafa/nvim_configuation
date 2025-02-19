@@ -41,9 +41,10 @@ mason_null_ls.setup({
   ensure_installed = {
     "prettier",
     "templ",
+    "elixir-ls",
     "stylua",
     "htmx-lsp",
     "eslint_d",
   },
-   automatic_installation = true,
+  automatic_installation = true,
 })

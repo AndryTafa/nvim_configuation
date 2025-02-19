@@ -61,7 +61,7 @@ local capabilities = cmp_nvm_lsp.default_capabilities()
 lspconfig["html"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "html", "templ" },
+  filetypes = { "html", "templ", "eelixir", "heex" },
 })
 
 lspconfig["templ"].setup({
@@ -100,14 +100,13 @@ lspconfig["gopls"].setup({
   },
 })
 
-lspconfig["templ"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach
-})
-
 vim.filetype.add({
+  extension = {
+    heex = "heex",
+  },
   pattern = {
-    ['.*%.blade%.php'] = 'php'
+    ['.*%.blade%.php'] = 'php',
+    ['.*%.heex'] = "heex",
   },
 })
 
@@ -116,6 +115,14 @@ lspconfig["intelephense"].setup({
   on_attach = on_attach,
   filetypes = { "php" },
 })
+
+-- -- /Users/andrytafa/.cache/nvim/elixir-tools.nvim/installs/elixir-lsp/elixir-ls/tags_v0.22.0/1.18.1-27/language_server.sh
+-- lspconfig["elixir-ls"].setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   -- cmd = { "/Users/andrytafa/.cache/nvim/elixir-tools.nvim/installs/elixir-lsp/elixir-ls/tags_v0.22.0/1.18.1-27/language_server.sh" },
+-- })
+
 
 lspconfig["tsserver"].setup({
   capabilities = capabilities,
@@ -131,9 +138,41 @@ lspconfig["cssls"].setup({
 lspconfig["tailwindcss"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "templ", "astro", "javascript", "typescript", "react", "svelte", "vue", "php" },
-  init_options = { userLanguages = { templ = "html" } },
+  filetypes = {
+    "html", "templ", "astro", "javascript", "typescript",
+    "react", "svelte", "vue", "php", "heex", "elixir", "eelixir"
+  },
+  init_options = {
+    userLanguages = {
+      heex    = "html",
+      eelixir = "html-eex",
+      elixir  = "html-eex",  -- Treat Elixir files (with ~H sigils) as HTML-EEx
+    },
+  },
+  root_dir = function(fname)
+    return lspconfig.util.root_pattern(
+      "mix.exs",               -- Phoenix project marker
+      "tailwind.config.js",
+      "tailwind.config.ts",
+      "postcss.config.js",
+      "package.json",
+      "node_modules"
+    )(fname)
+      or vim.loop.cwd()
+  end,
 })
+
+vim.api.nvim_create_autocmd("BufRead", {
+  pattern = {"*.ex", "*.exs"},
+  callback = function()
+    local lines = vim.api.nvim_buf_get_lines(0, 0, 50, false)
+    local content = table.concat(lines, "\n")
+    if content:match("~H") then
+      vim.bo.filetype = "heex"
+    end
+  end,
+})
+
 
 lspconfig["htmx"].setup({
   capabilities = capabilities,

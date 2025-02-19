@@ -3,12 +3,15 @@ if not setup then
   return
 end
 
+-- Default configuration
 tinyInlineDiagnostic.setup({
     -- Style preset for diagnostic messages
     -- Available options:
     -- "modern", "classic", "minimal", "powerline",
     -- "ghost", "simple", "nonerdfont", "amongus"
     preset = "modern",
+
+    transparent_bg = false, -- Set the background of the diagnostic to transparent
 
     hi = {
         error = "DiagnosticError", -- Highlight group for error messages
@@ -28,10 +31,10 @@ tinyInlineDiagnostic.setup({
 
     options = {
         -- Display the source of the diagnostic (e.g., basedpyright, vsserver, lua_ls etc.)
-        show_source = true,
+        show_source = false,
 
         -- Use icons defined in the diagnostic configuration
-        use_icons_from_diagnostic = true,
+        use_icons_from_diagnostic = false,
 
         -- Add messages to diagnostics when multiline diagnostics are enabled
         -- If set to false, only signs will be displayed
@@ -44,10 +47,6 @@ tinyInlineDiagnostic.setup({
 
         -- Minimum message length before wrapping to a new line
         softwrap = 30,
-
-        -- Show all diagnostics under the cursor if multiple diagnostics exist on the same line
-        -- If set to false, only the diagnostics under the cursor will be displayed
-        multiple_diag_under_cursor = true,
 
         -- Configuration for multiline diagnostics
         -- Can either be a boolean or a table with the following options:
@@ -65,11 +64,11 @@ tinyInlineDiagnostic.setup({
             enabled = false,
 
             -- Always show messages on all lines for multiline diagnostics
-            always_show = true,
+            always_show = false,
         },
 
         -- Display all diagnostic messages on the cursor line
-        show_all_diags_on_cursorline = true,
+        show_all_diags_on_cursorline = false,
 
         -- Enable diagnostics in Insert mode
         -- If enabled, it is better to set the `throttle` option to 0 to avoid visual artifacts
@@ -85,6 +84,11 @@ tinyInlineDiagnostic.setup({
             -- "none" - Do not truncate messages
             -- "oneline" - Keep the message on a single line, even if it's long
             mode = "wrap",
+
+            -- Trigger wrapping to occur this many characters earlier when mode == "wrap".
+            -- Increase this value appropriately if you notice that the last few characters
+            -- of wrapped diagnostics are sometimes obscured.
+            padding = 0,
         },
 
         -- Configuration for breaking long messages into separate lines
@@ -126,4 +130,5 @@ tinyInlineDiagnostic.setup({
         -- You should not change this unless the plugin does not work with your configuration
         overwrite_events = nil,
     },
+    disabled_ft = {} -- List of filetypes to disable the plugin
 })

@@ -117,6 +117,10 @@ return packer.startup(function(use)
   -- hologram for images in nvim
   use("edluffy/hologram.nvim")
 
+  use {
+    'rachartier/tiny-inline-diagnostic.nvim',
+  }
+
   -- easymotion
   use("easymotion/vim-easymotion")
   use 'rlane/pounce.nvim'
@@ -167,12 +171,23 @@ return packer.startup(function(use)
 
   use 'pteroctopus/faster.nvim'
 
-  use({
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-    end,
-  })
+  -- use({
+  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  --   config = function()
+  --     require("lsp_lines").setup()
+  --   end,
+  -- })
+  use 'arzg/vim-colors-xcode'
+
+  use "nvzone/typr"
+  use "nvzone/volt"
+
+  use {
+    "nvim-zh/colorful-winsep.nvim",
+    config = function ()
+      require('colorful-winsep').setup()
+    end
+  }
 
   use({
     "kdheepak/lazygit.nvim",
@@ -182,6 +197,8 @@ return packer.startup(function(use)
     },
   })
 
+  use "slugbyte/lackluster.nvim"
+
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end }
@@ -189,6 +206,20 @@ return packer.startup(function(use)
   use 'FraserLee/ScratchPad'
   vim.g.scratchpad_textwidth = 80
   use 'mfussenegger/nvim-dap'
+
+  use({
+      "elixir-tools/elixir-tools.nvim",
+      tag = "stable",
+      requires = { "nvim-lua/plenary.nvim" }
+  })
+
+  require("elixir").setup({
+    nextls = {enable = false},
+    elixirls = {enable = true},
+    projectionist = {enable = true},
+  })
+
+  use "sindrets/diffview.nvim"
 
   if packer_bootstrap then
     require("packer").sync()

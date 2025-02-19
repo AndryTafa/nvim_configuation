@@ -1,7 +1,7 @@
 -- NOTE: this file is to add lightweight dependencies that dont require a lot of setup
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = true,
 })
 
 require('scrollEOF').setup()
