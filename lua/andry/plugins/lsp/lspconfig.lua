@@ -61,7 +61,7 @@ local capabilities = cmp_nvm_lsp.default_capabilities()
 lspconfig["html"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "html", "templ", "eelixir", "heex" },
+  filetypes = { "html", "templ", "eelixir" },
 })
 
 lspconfig["templ"].setup({
@@ -102,11 +102,12 @@ lspconfig["gopls"].setup({
 
 vim.filetype.add({
   extension = {
-    heex = "heex",
+    templ = "templ",
   },
   pattern = {
     ['.*%.blade%.php'] = 'php',
     ['.*%.heex'] = "heex",
+    ['.*%.eex'] = "eex",
   },
 })
 
@@ -123,6 +124,27 @@ lspconfig["intelephense"].setup({
 --   -- cmd = { "/Users/andrytafa/.cache/nvim/elixir-tools.nvim/installs/elixir-lsp/elixir-ls/tags_v0.22.0/1.18.1-27/language_server.sh" },
 -- })
 
+require("elixir").setup({
+  nextls = {
+    enable = false,
+  },
+  elixirls = {
+    enable = true,
+    settings = {
+      elixirLS = {
+        dialyzerEnabled = true,
+        fetchDeps = false,
+        enableTestLenses = true,
+        suggestSpecs = true,
+      },
+    },
+    on_attach = on_attach,
+    capabilities = capabilities,
+  },
+  projectionist = {
+    enable = true,
+  },
+})
 
 lspconfig["tsserver"].setup({
   capabilities = capabilities,
@@ -132,7 +154,8 @@ lspconfig["tsserver"].setup({
 
 lspconfig["cssls"].setup({
   capabilities = capabilities,
-  on_attach = on_attach
+  on_attach = on_attach,
+  filetypes = { "css", "scss", "less" }
 })
 
 lspconfig["tailwindcss"].setup({
@@ -162,22 +185,16 @@ lspconfig["tailwindcss"].setup({
   end,
 })
 
-vim.api.nvim_create_autocmd("BufRead", {
-  pattern = {"*.ex", "*.exs"},
-  callback = function()
-    local lines = vim.api.nvim_buf_get_lines(0, 0, 50, false)
-    local content = table.concat(lines, "\n")
-    if content:match("~H") then
-      vim.bo.filetype = "heex"
-    end
-  end,
-})
-
-
 lspconfig["htmx"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   filetypes = { "html", "templ" },
+})
+
+lspconfig.emmet_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = { "html", "heex", "eex", "css" },
 })
 
 -- configure lua server (with special settings)

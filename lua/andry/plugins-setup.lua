@@ -150,6 +150,8 @@ return packer.startup(function(use)
   -- use vim-illuminate
   use 'RRethy/vim-illuminate'
 
+  use{ "sainnhe/gruvbox-material", }
+
   -- Lua
   use{ "folke/zen-mode.nvim", }
 
@@ -171,12 +173,6 @@ return packer.startup(function(use)
 
   use 'pteroctopus/faster.nvim'
 
-  -- use({
-  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  --   config = function()
-  --     require("lsp_lines").setup()
-  --   end,
-  -- })
   use 'arzg/vim-colors-xcode'
 
   use "nvzone/typr"
@@ -208,15 +204,9 @@ return packer.startup(function(use)
   use 'mfussenegger/nvim-dap'
 
   use({
-      "elixir-tools/elixir-tools.nvim",
-      tag = "stable",
-      requires = { "nvim-lua/plenary.nvim" }
-  })
-
-  require("elixir").setup({
-    nextls = {enable = false},
-    elixirls = {enable = true},
-    projectionist = {enable = true},
+    "elixir-tools/elixir-tools.nvim",
+    tag = "stable",
+    requires = { "nvim-lua/plenary.nvim" }
   })
 
   use "sindrets/diffview.nvim"

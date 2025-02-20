@@ -15,7 +15,9 @@ treesitter.setup({
     enable_close_on_slash = true,
     filetypes = {
       'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
-      'css', 'lua', 'xml', 'php', 'markdown', 'templ', 'go', 'php', 'blade', 'blade.php', 'heex'
+      'css', 'lua', 'xml', 'php', 'markdown', 'templ', 'go',
+      'php', 'blade', 'blade.php',
+      'heex', 'elixir', 'eex', 'eelixir'
     },
   },
   ensure_installed = {
@@ -43,12 +45,8 @@ treesitter.setup({
     "xml",
     "elixir",
     "heex",
+    "eex",
   },
   auto_install = true,
 })
 
-vim.filetype.add({
-  extension = {
-    templ = "templ",
-  },
-})

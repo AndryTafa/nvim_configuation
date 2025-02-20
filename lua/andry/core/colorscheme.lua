@@ -75,8 +75,12 @@ require("cyberdream").setup({
 })
 require("rose-pine").setup({
   variation = "main",
-  disable_background = true,
+  disable_background = false,
 });
 
 vim.o.background = "dark"
+vim.g.gruvbox_material_foreground = 'mix'
+vim.g.gruvbox_material_background = 'medium';
+
+-- vim.cmd('colorscheme gruvbox-material')
 vim.cmd("colorscheme gruvbox")

@@ -32,6 +32,7 @@ mason_lspconfig.setup({
     "intelephense",
     "htmx",
     "kotlin_language_server",
+    "elixirls"
     -- "lemminx",
   },
   automatic_installation = true,
@@ -41,7 +42,6 @@ mason_null_ls.setup({
   ensure_installed = {
     "prettier",
     "templ",
-    "elixir-ls",
     "stylua",
     "htmx-lsp",
     "eslint_d",
