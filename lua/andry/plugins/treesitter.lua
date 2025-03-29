@@ -17,7 +17,7 @@ treesitter.setup({
       'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript',
       'css', 'lua', 'xml', 'php', 'markdown', 'templ', 'go',
       'php', 'blade', 'blade.php',
-      'heex', 'elixir', 'eex', 'eelixir'
+      'heex', 'elixir', 'eex', 'eelixir', 'rust'
     },
   },
   ensure_installed = {

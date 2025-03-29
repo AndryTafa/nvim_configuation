@@ -135,7 +135,7 @@ require("elixir").setup({
         dialyzerEnabled = true,
         fetchDeps = false,
         enableTestLenses = true,
-        suggestSpecs = true,
+        suggestSpecs = false,
       },
     },
     on_attach = on_attach,
@@ -150,6 +150,11 @@ lspconfig["tsserver"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   filetypes = { "js", "ts" },
+})
+
+lspconfig["rust-analyzer"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach
 })
 
 lspconfig["cssls"].setup({
