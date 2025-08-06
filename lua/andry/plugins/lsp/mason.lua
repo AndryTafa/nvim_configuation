@@ -23,7 +23,7 @@ mason_lspconfig.setup({
   ensure_installed = {
     "html",
     "templ",
-    "tsserver",
+    "ts_ls",
     "cssls",
     "tailwindcss",
     "svelte",

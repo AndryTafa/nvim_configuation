@@ -1,4 +1,4 @@
-require("andry.plugins-setup") -- should be at the top
+require("andry.lazy-setup")
 require("andry.core.options")
 require("andry.core.keymaps")
 require("andry.plugins.comment")

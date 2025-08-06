@@ -46,7 +46,7 @@ local on_attach = function(client, bufnr)
     })
   end
 
-  if client.name == "tsserver" then
+  if client.name == "ts_ls" then
     keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
     keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
     keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
@@ -146,16 +146,16 @@ require("elixir").setup({
   },
 })
 
-lspconfig["tsserver"].setup({
+lspconfig["ts_ls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   filetypes = { "js", "ts" },
 })
 
-lspconfig["rust-analyzer"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach
-})
+-- lspconfig["rust-analyzer"].setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach
+-- })
 
 lspconfig["cssls"].setup({
   capabilities = capabilities,
