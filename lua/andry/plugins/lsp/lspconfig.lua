@@ -130,6 +130,7 @@ require("elixir").setup({
   },
   elixirls = {
     enable = true,
+    tag = "v0.29.1",
     settings = {
       elixirLS = {
         dialyzerEnabled = true,
