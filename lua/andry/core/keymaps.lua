@@ -36,7 +36,7 @@ keymap.set("n", "<leader>fi", ":NvimTreeToggle<CR>")
 keymap.set("n", "<leader>oo", ":Oil<CR>")
 
 -- Plugin keymaps
-keymap.set("n", "<leader>i", ":PackerInstall<CR>")
+keymap.set("n", "<leader>i", ":Lazy install<CR>")
 
 -- fuzzy finder - telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
@@ -51,7 +51,7 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 -- easymotion
 vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-e)", { silent = true })
 
-vim.api.nvim_set_keymap('n', '<leader><leader>1', ':colorscheme catppuccin-macchiato<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader><leader>1', ':colorscheme github_dark_dimmed<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader><leader>2', ':colorscheme catppuccin-latte<CR>', { noremap = true, silent = true })
 
 -- Set the keymap to call the globally defined function

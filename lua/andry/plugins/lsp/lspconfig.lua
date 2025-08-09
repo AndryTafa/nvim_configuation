@@ -46,11 +46,11 @@ local on_attach = function(client, bufnr)
     })
   end
 
-  if client.name == "ts_ls" then
-    keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
-    keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
-    keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
-  end
+  -- if client.name == "ts_ls" then
+  --   keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
+  --   keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
+  --   keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
+  -- end
 end
 
 -- used to enable autocompletion
@@ -150,7 +150,11 @@ require("elixir").setup({
 lspconfig["ts_ls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "js", "ts" },
+})
+
+lspconfig["vue_ls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- lspconfig["rust-analyzer"].setup({

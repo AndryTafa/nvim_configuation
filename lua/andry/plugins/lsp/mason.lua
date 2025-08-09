@@ -24,6 +24,7 @@ mason_lspconfig.setup({
     "html",
     "templ",
     "ts_ls",
+    "vue_ls",
     "cssls",
     "tailwindcss",
     "svelte",

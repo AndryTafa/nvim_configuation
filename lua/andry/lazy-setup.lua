@@ -23,6 +23,10 @@ require("lazy").setup({
   { "bluz71/vim-nightfly-guicolors" },
   { "bluz71/vim-moonfly-colors" },
   { "olimorris/onedark.nvim" },
+  { "loctvl842/monokai-pro.nvim" },
+  { "projekt0n/github-nvim-theme" },
+  { "Mofiqul/vscode.nvim" },
+  { "ThePrimeagen/harpoon" },
   { "ellisonleao/gruvbox.nvim" },
   { "EdenEast/nightfox.nvim" },
   { "folke/tokyonight.nvim" },
@@ -109,7 +113,7 @@ require("lazy").setup({
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   { "glepnir/lspsaga.nvim", branch = "main" },
-  { "jose-elias-alvarez/typescript.nvim" },
+  -- { "jose-elias-alvarez/typescript.nvim" },
   { "nvimtools/none-ls.nvim" }, -- null-ls successor
   { "jay-babu/mason-null-ls.nvim" }, -- updated repo for mason-null-ls.nvim
 

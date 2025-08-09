@@ -20,4 +20,4 @@ vim.g.gruvbox_material_foreground = 'mix'
 vim.g.gruvbox_material_background = 'medium';
 
 -- vim.cmd('colorscheme gruvbox')
-vim.cmd("colorscheme catppuccin-macchiato")
+vim.cmd("colorscheme github_dark_dimmed")
