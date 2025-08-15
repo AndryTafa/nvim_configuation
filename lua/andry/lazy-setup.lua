@@ -36,6 +36,7 @@ require("lazy").setup({
   { "dark-orchid/neovim" },
   { "slugbyte/lackluster.nvim" },
   { "arzg/vim-colors-xcode" },
+  { "rose-pine/neovim", name = "rose-pine" },
 
   -- Core libs
   { "nvim-lua/plenary.nvim" },
@@ -166,6 +167,6 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
   },
 }, {
-  ui = { border = "rounded" },
-  change_detection = { notify = false },
-})
+    ui = { border = "rounded" },
+    change_detection = { notify = false },
+  })
