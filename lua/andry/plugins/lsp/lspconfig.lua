@@ -147,14 +147,39 @@ require("elixir").setup({
   },
 })
 
-lspconfig["ts_ls"].setup({
+-- lspconfig["ts_ls"].setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- })
+
+lspconfig["vtsls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  filetypes = {
+    "typescript",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "vue",
+  },
+  settings = {
+    typescript = {
+      tsdk = vim.fn.stdpath("data") ..
+        "/mason/packages/typescript/lib"
+    }
+  }
 })
+
 
 lspconfig["vue_ls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  init_options = {
+    typescript = {
+      tsdk = vim.fn.stdpath("data") ..
+        "/mason/packages/typescript/lib"
+    }
+  }
 })
 
 -- lspconfig["rust-analyzer"].setup({

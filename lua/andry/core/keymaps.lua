@@ -21,8 +21,8 @@ keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous tab
 
 -- center screen after ctrl-u and ctrl-d
-keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
-keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+keymap.set("n", "<C-d>", "<C-d>zt", { noremap = true, silent = true })
+keymap.set("n", "<C-u>", "<C-u>zt", { noremap = true, silent = true })
 -- center screen after { and }
 
 -- vim-maximizer

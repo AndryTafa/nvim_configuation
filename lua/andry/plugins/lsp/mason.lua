@@ -23,7 +23,8 @@ mason_lspconfig.setup({
   ensure_installed = {
     "html",
     "templ",
-    "ts_ls",
+    -- "ts_ls",
+    "vtsls",
     "vue_ls",
     "cssls",
     "tailwindcss",
