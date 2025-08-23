@@ -42,6 +42,7 @@ require("lazy").setup({
   {"nickkadutskyi/jb.nvim"},
   {"nyoom-engineering/oxocarbon.nvim"},
   {"rktjmp/lush.nvim"},
+  {'oxfist/night-owl.nvim'},
 
   -- Core libs
   { "nvim-lua/plenary.nvim" },
@@ -161,6 +162,13 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   { "FraserLee/ScratchPad" },
+  {
+    "3rd/image.nvim",
+    opts = {
+      processor = "magick_rock", -- use ffi
+      backend = "kitty",         -- or "ueberzug" if you use that
+    },
+  },
 
   -- Debugging
   { "mfussenegger/nvim-dap" },

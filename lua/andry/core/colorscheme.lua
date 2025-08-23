@@ -6,7 +6,45 @@
 --  print("Colorscheme not found")
 --  return
 -- end
+require("tokyonight").setup({
+  transparent = true,
+})
 
+require("github-theme").setup({
+  options = {
+    transparent = true,
+  }
+})
+
+require('gruvbox').setup({
+    transparent_mode = true,
+})
+
+require('vscode').setup({
+    transparent = true,
+})
+
+require('night-owl').setup({
+    transparent_background = true,
+})
+
+require("catppuccin").setup({
+    transparent_background = true,
+    float = {
+        transparent = false, -- enable transparent floating windows
+        solid = false, -- use solid styling for floating windows, see |winborder|
+    },
+    show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+    term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+    dim_inactive = {
+        enabled = false, -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.15, -- percentage of the shade to apply to the inactive window
+    },
+})
+
+-- setup must be called before loading
+vim.cmd.colorscheme "catppuccin"
 require("rose-pine").setup({
   variant = "auto",
   dark_variant = "moon",
@@ -74,5 +112,5 @@ vim.g.gruvbox_material_background = 'medium';
 
 -- vim.cmd('colorscheme gruvbox')
 -- vim.cmd("colorscheme github_dark_dimmed")
-vim.cmd("colorscheme rose-pine-main")
+vim.cmd("colorscheme vscode")
 
