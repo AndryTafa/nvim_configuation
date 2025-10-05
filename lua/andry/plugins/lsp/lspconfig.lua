@@ -57,6 +57,10 @@ end
 -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local capabilities = cmp_nvm_lsp.default_capabilities()
 
+-- Enhance capabilities for Tailwind CSS
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.colorProvider = { dynamicRegistration = true }
+
 
 lspconfig["html"].setup({
   capabilities = capabilities,
@@ -203,7 +207,30 @@ lspconfig["tailwindcss"].setup({
   on_attach = on_attach,
   filetypes = {
     "html", "templ", "astro", "javascript", "typescript",
-    "react", "svelte", "vue", "php", "heex", "elixir", "eelixir"
+    "javascriptreact", "typescriptreact", "svelte", "vue", "php",
+    "heex", "elixir", "eelixir", "css", "scss", "less"
+  },
+  settings = {
+    tailwindCSS = {
+      experimental = {
+        classRegex = {
+          { "class[:]\\s*'([^']*)'", "'([^']*)'" },
+          { 'class[:]\\s*"([^"]*)"', '"([^"]*)"' },
+          { "class[:]\\s*`([^`]*)`", "`([^`]*)`" },
+          { "className\\s*=\\s*['\"`]([^'\"`]*)['\"`]" },
+        },
+      },
+      validate = true,
+      lint = {
+        cssConflict = "warning",
+        invalidApply = "error",
+        invalidScreen = "error",
+        invalidVariant = "error",
+        invalidConfigPath = "error",
+        invalidTailwindDirective = "error",
+        recommendedVariantOrder = "warning",
+      },
+    },
   },
   init_options = {
     userLanguages = {
@@ -213,8 +240,17 @@ lspconfig["tailwindcss"].setup({
     },
   },
   root_dir = function(fname)
+    -- First try to find Phoenix assets directory
+    local phoenix_root = lspconfig.util.root_pattern("mix.exs")(fname)
+    if phoenix_root then
+      local assets_tailwind = phoenix_root .. "/assets/tailwind.config.js"
+      if vim.loop.fs_stat(assets_tailwind) then
+        return phoenix_root
+      end
+    end
+
+    -- Fall back to standard patterns
     return lspconfig.util.root_pattern(
-      "mix.exs",               -- Phoenix project marker
       "tailwind.config.js",
       "tailwind.config.ts",
       "postcss.config.js",
