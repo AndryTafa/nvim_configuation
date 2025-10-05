@@ -43,6 +43,8 @@ require("lazy").setup({
   {"nyoom-engineering/oxocarbon.nvim"},
   {"rktjmp/lush.nvim"},
   {'oxfist/night-owl.nvim'},
+  {"https://github.com/codeomnium-x/nox.nvim"},
+  { "lukas-reineke/virt-column.nvim", opts = {} },
 
   -- Core libs
   { "nvim-lua/plenary.nvim" },
@@ -114,6 +116,17 @@ require("lazy").setup({
   { "saadparwaiz1/cmp_luasnip" },
   { "rafamadriz/friendly-snippets" },
   { "onsails/lspkind.nvim" },
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    name = "tailwind-tools",
+    build = ":UpdateRemotePlugins",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim", -- optional
+      "neovim/nvim-lspconfig", -- optional
+    },
+    opts = {} -- your configuration
+  },
 
   -- LSP, mason, saga, ts, null-ls
   { "neovim/nvim-lspconfig" },
@@ -155,7 +168,14 @@ require("lazy").setup({
   { "m4xshen/hardtime.nvim" },
   { "Aasim-A/scrollEOF.nvim" },
   { "joerdav/templ.vim" },
-  { "pteroctopus/faster.nvim" },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter'},
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  },
+  { "sitiom/nvim-numbertoggle" },
   { "nvzone/volt" },
   {
     "kdheepak/lazygit.nvim",
@@ -170,6 +190,28 @@ require("lazy").setup({
     },
   },
 
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "InsertEnter",
+    opts = {
+      -- cfg options
+    },
+  },
+  {
+    "polirritmico/monokai-nightasty.nvim",
+  },
+  {
+    'oribarilan/lensline.nvim',
+    tag = '1.0.0', -- or: branch = 'release/1.x' for latest non-breaking updates
+    event = 'LspAttach',
+    -- config = function()
+    --   require("lensline").setup()
+    -- end,
+  },
+
+  {'MunifTanjim/nui.nvim'},
+  {'VonHeikemen/fine-cmdline.nvim'},
+
   -- Debugging
   { "mfussenegger/nvim-dap" },
 
@@ -179,7 +221,8 @@ require("lazy").setup({
     tag = "stable",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
-}, {
+},
+  {
     ui = { border = "rounded" },
     change_detection = { notify = false },
   })

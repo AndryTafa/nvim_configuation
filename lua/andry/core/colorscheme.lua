@@ -6,45 +6,91 @@
 --  print("Colorscheme not found")
 --  return
 -- end
-require("tokyonight").setup({
-  transparent = true,
+
+require("monokai-nightasty").setup({
+  dark_style_background = "transparent",
+})
+
+vim.g.zenbones_transparent_background = true
+
+require("monokai-pro").setup({
+  transparent_background = true,
 })
 
 require("github-theme").setup({
   options = {
-    transparent = true,
+    transparent = false,
   }
 })
 
 require('gruvbox').setup({
-    transparent_mode = true,
+  transparent_mode = true,
 })
 
 require('vscode').setup({
-    transparent = true,
+  transparent = true,
 })
 
 require('night-owl').setup({
-    transparent_background = true,
+  transparent_background = true,
+})
+
+require("nox").setup({
+  theme = "dark",              -- "dark", "light", or "umbra"
+  transparent = true,         -- Enable transparent background
 })
 
 require("catppuccin").setup({
-    transparent_background = true,
-    float = {
-        transparent = false, -- enable transparent floating windows
-        solid = false, -- use solid styling for floating windows, see |winborder|
-    },
-    show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-    term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
-    dim_inactive = {
-        enabled = false, -- dims the background color of inactive window
-        shade = "dark",
-        percentage = 0.15, -- percentage of the shade to apply to the inactive window
-    },
+  transparent_background = true,
+  float = {
+    transparent = false, -- enable transparent floating windows
+    solid = false, -- use solid styling for floating windows, see |winborder|
+  },
+  show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+  term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
+  dim_inactive = {
+    enabled = false, -- dims the background color of inactive window
+    shade = "dark",
+    percentage = 0.15, -- percentage of the shade to apply to the inactive window
+  },
+})
+
+require("tokyonight").setup({
+  transparent = false,
+
+  style = "night",
+
+  on_colors = function(colors)
+    local bg = "#011628"
+    local bg_dark = "#011423"
+    local bg_highlight = "#143652"
+    local bg_search = "#0A64AC"
+    local bg_visual = "#275378"
+    local fg = "#CBE0F0"
+    local fg_dark = "#B4D0E9"
+    local fg_gutter = "#627E97"
+    local border = "#547998"
+
+    colors.bg = bg
+    colors.bg_dark = bg_dark
+    colors.bg_float = bg_dark
+    colors.bg_highlight = bg_highlight
+    colors.bg_popup = bg_dark
+    colors.bg_search = bg_search
+    colors.bg_sidebar = bg_dark
+    colors.bg_statusline = bg_dark
+    colors.bg_visual = bg_visual
+    colors.border = border
+    colors.fg = fg
+    colors.fg_dark = fg_dark
+    colors.fg_float = fg
+    colors.fg_gutter = fg_gutter
+    colors.fg_sidebar = fg_dark
+  end,
 })
 
 -- setup must be called before loading
-vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme "catppuccin"
 require("rose-pine").setup({
   variant = "auto",
   dark_variant = "moon",
@@ -111,6 +157,6 @@ vim.g.gruvbox_material_foreground = 'mix'
 vim.g.gruvbox_material_background = 'medium';
 
 -- vim.cmd('colorscheme gruvbox')
--- vim.cmd("colorscheme github_dark_dimmed")
-vim.cmd("colorscheme vscode")
-
+vim.cmd("colorscheme monokai_extended")
+vim.cmd("colorscheme github_dark_dimmed")
+-- vim.cmd("colorscheme vscode")

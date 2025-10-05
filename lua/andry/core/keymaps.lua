@@ -54,6 +54,7 @@ vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-e)", { silent = true })
 vim.api.nvim_set_keymap('n', '<leader><leader>1', ':colorscheme github_dark_dimmed<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader><leader>2', ':colorscheme catppuccin-latte<CR>', { noremap = true, silent = true })
 
+-- vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
 -- Set the keymap to call the globally defined function
 function _G.indent_file()
   -- Save the current view state

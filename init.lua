@@ -1,4 +1,5 @@
 require("andry.lazy-setup")
+vim.loader.enable()
 require("andry.core.options")
 require("andry.core.keymaps")
 require("andry.plugins.comment")

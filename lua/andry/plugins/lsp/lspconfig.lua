@@ -75,6 +75,11 @@ lspconfig["svelte"].setup({
   on_attach = on_attach,
 })
 
+lspconfig["jdtls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
 typescript.setup({
   server = {
     capabilities = capabilities,

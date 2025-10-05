@@ -122,4 +122,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.templ'
+vim.g.scratchpad_autostart = 1
+-- vim.g.scratchpad_location = '~/README.md'
+
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   callback = function()
+--     -- Make sure the plugin is loaded (useful if you're lazy-loading)
+--     pcall(vim.cmd, "ZenMode")
+--   end,
+-- })
+
+vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.templ, *.vue'
+vim.api.nvim_set_hl(0, "IblIndent", { fg = "#6a6a6a", nocombine = true })
