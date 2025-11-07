@@ -185,7 +185,7 @@ require("lazy").setup({
   {
     "3rd/image.nvim",
     opts = {
-      processor = "magick_rock", -- use ffi
+      processor = "magick_cli", -- use ffi
       backend = "kitty",         -- or "ueberzug" if you use that
     },
   },
