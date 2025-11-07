@@ -135,10 +135,10 @@ lspconfig["intelephense"].setup({
 
 require("elixir").setup({
   nextls = {
-    enable = false,
+    enable = true,
   },
   elixirls = {
-    enable = true,
+    enable = false,
     tag = "v0.29.1",
     settings = {
       elixirLS = {
