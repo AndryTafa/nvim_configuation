@@ -9,9 +9,6 @@ if not cmp_nvim_lsp_status then
 end
 
 local typescript_setup, typescript = pcall(require, "typescript")
-if not typescript_setup then
-  return
-end
 
 local keymap = vim.keymap
 
@@ -84,16 +81,33 @@ lspconfig["jdtls"].setup({
   on_attach = on_attach,
 })
 
-typescript.setup({
-  server = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-})
+if typescript_setup then
+  typescript.setup({
+    server = {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
+  })
+end
 
 lspconfig["kotlin_language_server"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
+})
+
+lspconfig["gleam"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  cmd = { "gleam", "lsp" },
+  filetypes = { "gleam" },
+  root_dir = function(fname)
+    return lspconfig.util.root_pattern("gleam.toml", "manifest.toml")(fname)
+      or lspconfig.util.find_git_ancestor(fname)
+      or (fname ~= "" and vim.fn.fnamemodify(fname, ":p:h") or nil)
+      or vim.loop.cwd()
+  end,
+  single_file_support = true,
+  autostart = true,
 })
 
 lspconfig["gopls"].setup({
@@ -112,6 +126,7 @@ lspconfig["gopls"].setup({
 vim.filetype.add({
   extension = {
     templ = "templ",
+    gleam = "gleam",
   },
   pattern = {
     ['.*%.blade%.php'] = 'php',
@@ -293,4 +308,3 @@ lspconfig["lua_ls"].setup({
     },
   },
 })
-

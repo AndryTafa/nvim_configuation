@@ -34,7 +34,7 @@ treesitter.setup({
     "elixir",
     "heex",
     "eex",
+    "gleam",
   },
   auto_install = true,
 })
-
