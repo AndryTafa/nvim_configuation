@@ -10,6 +10,10 @@ end
 
 local typescript_setup, typescript = pcall(require, "typescript")
 
+if vim.lsp and vim.lsp.disable then
+  vim.lsp.disable("elixirls")
+end
+
 local keymap = vim.keymap
 
 -- enable keybinds only for when lsp sever is available
@@ -150,7 +154,7 @@ lspconfig["intelephense"].setup({
 
 require("elixir").setup({
   nextls = {
-    enable = true,
+    enable = false,
   },
   elixirls = {
     enable = false,
@@ -169,6 +173,31 @@ require("elixir").setup({
   projectionist = {
     enable = true,
   },
+})
+
+local expert_defaults = {
+  cmd = { "expert", "--stdio" },
+  filetypes = { "elixir", "eelixir", "heex" },
+  root_dir = function(fname)
+    return lspconfig.util.root_pattern("mix.exs", "mix.lock", ".git")(fname)
+      or vim.loop.cwd()
+  end,
+}
+
+if vim.lsp and vim.lsp.config then
+  vim.lsp.config("expert", vim.deepcopy(expert_defaults))
+end
+
+local configs = require("lspconfig.configs")
+if not configs.expert then
+  configs.expert = {
+    default_config = expert_defaults,
+  }
+end
+
+lspconfig["expert"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 
 -- lspconfig["ts_ls"].setup({

@@ -35,7 +35,7 @@ mason_lspconfig.setup({
     "intelephense",
     "htmx",
     "kotlin_language_server",
-    "elixirls",
+    "expert",
     -- "lemminx",
   },
   automatic_installation = true,

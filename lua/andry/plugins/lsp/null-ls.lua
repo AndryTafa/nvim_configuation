@@ -9,6 +9,17 @@ local diagnostics = null_ls.builtins.diagnostics
 -- to setup format on save
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
+local configs = require("lspconfig.configs")
+if not configs.stylua then
+  configs.stylua = {
+    default_config = {
+      cmd = { "stylua", "--stdio" },
+      filetypes = { "lua" },
+      root_dir = require("lspconfig.util").root_pattern("stylua.toml", ".stylua.toml", ".git"),
+    },
+  }
+end
+
 null_ls.setup({
   sources = {
     formatting.prettier,
@@ -35,4 +46,3 @@ null_ls.setup({
     end
   end,
 })
-
