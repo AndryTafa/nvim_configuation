@@ -32,6 +32,7 @@ mason_lspconfig.setup({
     "jdtls",
     "yamlls",
     "gopls",
+    "basedpyright",
     "intelephense",
     "htmx",
     "kotlin_language_server",

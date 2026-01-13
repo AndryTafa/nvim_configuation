@@ -75,6 +75,11 @@ lspconfig["templ"].setup({
   filetypes = { "html", "templ" },
 })
 
+lspconfig["basedpyright"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
 lspconfig["svelte"].setup({
   capabilities = capabilities,
   on_attach = on_attach,

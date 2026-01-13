@@ -28,7 +28,7 @@ require('gruvbox').setup({
 })
 
 require('vscode').setup({
-  transparent = true,
+  transparent = false,
 })
 
 require('night-owl').setup({
