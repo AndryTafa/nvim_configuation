@@ -18,8 +18,6 @@ local colors = {
 vim.opt.background = "dark"
 vim.opt.termguicolors = true
 
-vim.cmd("hi clear")
-
 -- base
 vim.api.nvim_set_hl(0, "Normal", { fg = colors.fg, bg = colors.bg })
 vim.api.nvim_set_hl(0, "Comment", { fg = colors.comment, italic = true })

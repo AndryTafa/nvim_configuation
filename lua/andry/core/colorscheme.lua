@@ -11,10 +11,10 @@ require("monokai-nightasty").setup({
   dark_style_background = "transparent",
 })
 
-vim.g.zenbones_transparent_background = true
+vim.g.zenbones_transparent_background = false
 
 require("monokai-pro").setup({
-  transparent_background = true,
+  transparent_background = false,
 })
 
 require("github-theme").setup({
@@ -24,7 +24,7 @@ require("github-theme").setup({
 })
 
 require('gruvbox').setup({
-  transparent_mode = true,
+  transparent_mode = false,
 })
 
 require('vscode').setup({
@@ -32,16 +32,16 @@ require('vscode').setup({
 })
 
 require('night-owl').setup({
-  transparent_background = true,
+  transparent_background = false,
 })
 
 require("nox").setup({
   theme = "dark",              -- "dark", "light", or "umbra"
-  transparent = true,         -- Enable transparent background
+  transparent = false,         -- Enable transparent background
 })
 
 require("catppuccin").setup({
-  transparent_background = true,
+  transparent_background = false,
   float = {
     transparent = false, -- enable transparent floating windows
     solid = false, -- use solid styling for floating windows, see |winborder|
@@ -157,6 +157,7 @@ vim.g.gruvbox_material_foreground = 'mix'
 vim.g.gruvbox_material_background = 'medium';
 
 -- vim.cmd('colorscheme gruvbox')
-vim.cmd("colorscheme monokai_extended")
-vim.cmd("colorscheme github_dark_dimmed")
+-- vim.cmd("colorscheme monokai_extended")
+-- vim.cmd("colorscheme github_dark_dimmed")
 -- vim.cmd("colorscheme vscode")
+vim.cmd("colorscheme onedark_dark")

@@ -10,6 +10,8 @@ keymap.set("n", "<leader>h", ":noh<CR>", { noremap = true, silent = true }) -- A
 keymap.set("n", "<leader>l", ":b#<CR>", { noremap = true, silent = true }) -- Keybinding to switch to the last used buffer
 keymap.set("n", "<leader>k", "0w", { noremap = true, silent = true }) -- Keybinding to switch to the last used buffer
 
+keymap.set("v", "E", "$", { noremap = true, silent = true }) -- in visual mode, shift+e highlights to end of line
+
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width
@@ -53,6 +55,7 @@ vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-e)", { silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader><leader>1', ':colorscheme github_dark_dimmed<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader><leader>2', ':colorscheme catppuccin-latte<CR>', { noremap = true, silent = true })
+
 
 -- vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
 -- Set the keymap to call the globally defined function

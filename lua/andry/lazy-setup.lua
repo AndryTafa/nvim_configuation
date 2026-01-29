@@ -70,9 +70,6 @@ require("lazy").setup({
     },
   },
 
-  -- File explorer
-  { "nvim-tree/nvim-tree.lua" },
-
   -- Icons
   { "kyazdani42/nvim-web-devicons" },
   { "ryanoasis/vim-devicons" }, -- legacy; keep only if you really need it
@@ -101,7 +98,6 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
   },
-
   -- Git
   { "lewis6991/gitsigns.nvim" },
   { "tpope/vim-fugitive" },
@@ -173,7 +169,33 @@ require("lazy").setup({
     dependencies = { 'nvim-treesitter/nvim-treesitter'},
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
+    opts = {
+      code = {
+        -- Remove the thick language bar & top/bottom borders on fenced code blocks.
+        border = 'none',
+        language_border = ' ',
+        above = ' ',
+        below = ' ',
+        highlight_border = false,
+        width = 'block',
+      },
+    },
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    ft = { "markdown" },
+  },
+  {
+    'TobinPalmer/pastify.nvim',
+    cmd = { 'Pastify', 'PastifyAfter' },
+    config = function()
+      require('pastify').setup {
+        opts = {
+          apikey = "",
+        },
+      }
+    end
   },
   { "sitiom/nvim-numbertoggle" },
   { "nvzone/volt" },

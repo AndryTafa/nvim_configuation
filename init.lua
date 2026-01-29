@@ -26,6 +26,7 @@ require("andry.plugins.oil")
 require("andry.plugins.illuminate")
 require("andry.plugins.twilight")
 require("andry.plugins.todo")
+require("andry.plugins.markdown-preview")
 
 require("andry.plugins.misc")
 require("andry.plugins.toggleterm")
