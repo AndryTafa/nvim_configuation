@@ -1,3 +1,7 @@
+-- Set leader key BEFORE loading plugins (critical for keybindings)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 require("andry.lazy-setup")
 vim.loader.enable()
 require("andry.core.options")

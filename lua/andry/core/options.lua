@@ -121,7 +121,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.g.scratchpad_autostart = 1
+vim.g.scratchpad_autostart = 0
 -- vim.g.scratchpad_location = '~/README.md'
 
 -- vim.api.nvim_create_autocmd("VimEnter", {
