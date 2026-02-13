@@ -140,3 +140,38 @@ fyler.setup({
     },
   },
 })
+
+-- Auto-open fyler on first file open
+local first_file_opened = false
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    if not first_file_opened then
+      first_file_opened = true
+      require("fyler").toggle({ kind = "split_left_most" })
+      vim.cmd.wincmd("l")
+    end
+  end,
+})
+
+-- Quit Neovim when all real buffers are closed (fyler buffer doesn't count)
+vim.api.nvim_create_autocmd("BufDelete", {
+  callback = function()
+    local buffers = vim.api.nvim_list_bufs()
+    local has_real_buffer = false
+
+    for _, bufnr in ipairs(buffers) do
+      local buftype = vim.api.nvim_get_option_value("buftype", { buf = bufnr })
+      local buflisted = vim.api.nvim_get_option_value("buflisted", { buf = bufnr })
+
+      if buflisted and buftype ~= "acwrite" then
+        has_real_buffer = true
+        break
+      end
+    end
+
+    if not has_real_buffer then
+      vim.cmd("qa")
+    end
+  end,
+})

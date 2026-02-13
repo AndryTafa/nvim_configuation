@@ -30,9 +30,10 @@ keymap.set("n", "<C-u>", "<C-u>zt", { noremap = true, silent = true })
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
--- NvimTreeToggle
-keymap.set("n", "<leader>fi", ":NvimTreeToggle<CR>")
---keymap.set("n", "<leader>k", toggleNvimTreeFocus, { silent = true, noremap = true })
+-- Fyler file manager (toggle on the left)
+keymap.set("n", "<leader>fi", function()
+  require("fyler").toggle({ kind = "split_left_most" })
+end, { silent = true, noremap = true, desc = "Toggle Fyler" })
 
 --oil toggle
 keymap.set("n", "<leader>oo", ":Oil<CR>")
@@ -54,7 +55,7 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-e)", { silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader><leader>1', ':colorscheme github_dark_dimmed<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader><leader>2', ':colorscheme catppuccin-latte<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader><leader>2', ':colorscheme catppuccin-latte | colorscheme vercel<CR>', { noremap = true, silent = true })
 
 
 -- vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})

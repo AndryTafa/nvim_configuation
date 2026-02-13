@@ -46,7 +46,7 @@ opt.iskeyword:remove("_")
 
 if vim.g.neovide then
   -- neovide settings
-  opt.guifont = { "CaskaydiaMono Nerd Font Mono", ":h15" }
+  opt.guifont = { "CaskaydiaMono Nerd Font Mono", ":h20" }
   -- vim.g.neovide_transparency = 0.95
 
   -- Copy
@@ -121,7 +121,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.g.scratchpad_autostart = 0
+vim.g.scratchpad_autostart = 0 -- disable scratchpad autostart
 -- vim.g.scratchpad_location = '~/README.md'
 
 -- vim.api.nvim_create_autocmd("VimEnter", {
