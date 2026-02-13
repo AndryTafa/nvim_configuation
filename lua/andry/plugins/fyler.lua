@@ -10,7 +10,20 @@ fyler.setup({
     -- function(src_path, dst_path) end
     on_rename = nil,
     -- function(hl_groups, palette) end
-    on_highlight = nil,
+    on_highlight = function(hl_groups, palette)
+      if vim.g.colors_name == "vercel" then
+        hl_groups.FylerFSDirectoryIcon = { link = "Constant" }
+        hl_groups.MiniIconsAzure = { link = "DiagnosticInfo" }
+        hl_groups.MiniIconsBlue = { link = "Constant" }
+        hl_groups.MiniIconsCyan = { link = "String" }
+        hl_groups.MiniIconsGreen = { link = "String" }
+        hl_groups.MiniIconsGrey = { link = "Comment" }
+        hl_groups.MiniIconsOrange = { link = "Parameter" }
+        hl_groups.MiniIconsPurple = { link = "Function" }
+        hl_groups.MiniIconsRed = { link = "Error" }
+        hl_groups.MiniIconsYellow = { link = "WarningMsg" }
+      end
+    end,
   },
   integrations = {
     icon = "mini_icons",
