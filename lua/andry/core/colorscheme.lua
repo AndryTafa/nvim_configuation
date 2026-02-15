@@ -160,6 +160,11 @@ vim.g.gruvbox_material_background = 'medium';
 -- vim.cmd("colorscheme catppuccin-latte")
 vim.opt.background = "light"
 vim.cmd("colorscheme vercel")
+
+-- Make floating windows (hover, etc.) more visible
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#f5f5f5", fg = "#1a1a1a" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#f5f5f5", fg = "#0066cc" })
+vim.api.nvim_set_hl(0, "FloatTitle", { bg = "#f5f5f5", fg = "#0066cc", bold = true })
 -- vim.cmd("colorscheme vscode")
 -- vim.cmd("colorscheme onedark_dark")
 -- vim.cmd("colorscheme kanagawa")
