@@ -39,6 +39,10 @@ mason_lspconfig.setup({
     "expert",
     -- "lemminx",
   },
+  -- Disable auto-enabling installed servers.
+  -- We manually configure servers in `lua/andry/plugins/lsp/lspconfig.lua`.
+  -- Keeping this on can lead to duplicate clients (and surprise defaults).
+  automatic_enable = false,
   automatic_installation = true,
 })
 

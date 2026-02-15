@@ -140,7 +140,8 @@ vim.filetype.add({
   pattern = {
     ['.*%.blade%.php'] = 'php',
     ['.*%.heex'] = "heex",
-    ['.*%.eex'] = "eex",
+    -- Phoenix EEx templates: treat as embedded Elixir for LSP.
+    ['.*%.eex'] = "eelixir",
   },
 })
 
@@ -180,12 +181,30 @@ require("elixir").setup({
   },
 })
 
+local function pick_expert_bin()
+  local candidates = {
+    vim.fn.expand("~/.local/bin/expert-nightly"),
+    vim.fn.stdpath("data") .. "/mason/bin/expert",
+    "expert",
+  }
+
+  for _, candidate in ipairs(candidates) do
+    if vim.fn.executable(candidate) == 1 then
+      return candidate
+    end
+  end
+
+  -- Last resort: let the OS try to resolve it.
+  return "expert"
+end
+
 local expert_defaults = {
-  cmd = { "expert", "--stdio" },
+  cmd = { pick_expert_bin(), "--stdio" },
   filetypes = { "elixir", "eelixir", "heex" },
+  -- Avoid starting Expert outside a project (it can otherwise try to index $HOME).
+  single_file_support = false,
   root_dir = function(fname)
     return lspconfig.util.root_pattern("mix.exs", "mix.lock", ".git")(fname)
-      or vim.loop.cwd()
   end,
 }
 
@@ -254,6 +273,9 @@ lspconfig["cssls"].setup({
 lspconfig["tailwindcss"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  -- Prevent tailwindcss-language-server from starting in $HOME (or other huge
+  -- directories) when no Tailwind project root is detected.
+  single_file_support = false,
   filetypes = {
     "html", "templ", "astro", "javascript", "typescript",
     "javascriptreact", "typescriptreact", "svelte", "vue", "php",
@@ -299,14 +321,15 @@ lspconfig["tailwindcss"].setup({
     end
 
     -- Fall back to standard patterns
-    return lspconfig.util.root_pattern(
+    local root = lspconfig.util.root_pattern(
       "tailwind.config.js",
       "tailwind.config.ts",
       "postcss.config.js",
       "package.json",
       "node_modules"
     )(fname)
-      or vim.loop.cwd()
+
+    return root
   end,
 })
 
@@ -319,7 +342,7 @@ lspconfig["htmx"].setup({
 lspconfig.emmet_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = { "html", "heex", "eex", "css" },
+  filetypes = { "html", "heex", "eelixir", "css" },
 })
 
 -- configure lua server (with special settings)
