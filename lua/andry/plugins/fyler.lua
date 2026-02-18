@@ -22,6 +22,8 @@ fyler.setup({
         hl_groups.MiniIconsPurple = { link = "Function" }
         hl_groups.MiniIconsRed = { link = "Error" }
         hl_groups.MiniIconsYellow = { link = "WarningMsg" }
+        -- Subtle cursorline for current file highlight
+        hl_groups.FylerCursorLine = { bg = "#d8d8d8" }
       end
     end,
   },
@@ -143,10 +145,10 @@ fyler.setup({
         win_opts = {
           concealcursor = "nvic",
           conceallevel = 3,
-          cursorline = false,
+          cursorline = true,
           number = false,
           relativenumber = false,
-          winhighlight = "Normal:FylerNormal,NormalNC:FylerNormalNC",
+          winhighlight = "Normal:FylerNormal,NormalNC:FylerNormalNC,CursorLine:FylerCursorLine",
           wrap = false,
         },
       },

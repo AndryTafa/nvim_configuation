@@ -100,6 +100,8 @@ require("lazy").setup({
   { "rktjmp/lush.nvim" },
   { 'oxfist/night-owl.nvim' },
   { "https://github.com/codeomnium-x/nox.nvim" },
+  { "tjdevries/colorbuddy.nvim" },
+  { "tjdevries/gruvbuddy.nvim" },
   { "lukas-reineke/virt-column.nvim", opts = {} },
 
   -- Core libs
@@ -218,30 +220,10 @@ require("lazy").setup({
         },
       })
 
-      --- 9v -> 99 Visual
-      vim.keymap.set("v", "<leader>9v", function()
-        _99.visual()
-      end)
-
-      --- 9vp -> 99 Visual Prompt
-      vim.keymap.set("v", "<leader>9vp", function()
+      -- Space+k in visual mode for 99 visual selection with prompt
+      vim.keymap.set("x", "<leader>k", function()
         _99.visual_prompt()
-      end)
-
-      --- 9s -> 99 Stop
-      vim.keymap.set("v", "<leader>9s", function()
-        _99.stop_all_requests()
-      end)
-
-      -- 9ff -> 99 Fill Function
-      vim.keymap.set("n", "<leader>9ff", function()
-        _99.fill_in_function()
-      end)
-
-      -- 9fp -> 99 Fill with Prompt
-      vim.keymap.set("n", "<leader>9fp", function()
-        _99.fill_in_function_prompt()
-      end)
+      end, { noremap = true, silent = true })
     end,
   },
 
@@ -254,11 +236,14 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
   },
-  -- Disabled: rainbow delimiters
-  -- {
-  --     "HiPhish/rainbow-delimiters.nvim",
-  --     dependencies = { "nvim-treesitter/nvim-treesitter" },
-  -- },
+  -- Rainbow delimiters for colored parentheses
+  {
+      "HiPhish/rainbow-delimiters.nvim",
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
+      config = function()
+        require("andry.plugins.rainbow-delimiters")
+      end,
+  },
   -- Git
   { "lewis6991/gitsigns.nvim" },
   { "tpope/vim-fugitive" },

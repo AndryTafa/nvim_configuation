@@ -33,5 +33,5 @@ telescope.load_extension("fzf")
 telescope.load_extension("media_files")
 
 -- Fix selection highlight for light colorschemes (vercel)
-vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#d4d4d4", fg = "#000000", bold = true })
-vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { fg = "#0070f3", bold = true })
+-- vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#d4d4d4", fg = "#000000", bold = true })
+-- vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", { fg = "#0070f3", bold = true })

@@ -152,14 +152,9 @@ vim.cmd("colorscheme rose-pine-main")
 -- end
 --
 
-vim.o.background = "dark"
+-- vim.o.background = "dark"
 vim.g.gruvbox_material_foreground = 'mix'
 vim.g.gruvbox_material_background = 'medium';
-
--- vim.cmd('colorscheme gruvbox')
--- vim.cmd("colorscheme catppuccin-latte")
-vim.opt.background = "light"
-vim.cmd("colorscheme vercel")
 
 -- Make floating windows (hover, etc.) more visible
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#f5f5f5", fg = "#1a1a1a" })
@@ -168,3 +163,17 @@ vim.api.nvim_set_hl(0, "FloatTitle", { bg = "#f5f5f5", fg = "#0066cc", bold = tr
 -- vim.cmd("colorscheme vscode")
 -- vim.cmd("colorscheme onedark_dark")
 -- vim.cmd("colorscheme kanagawa")
+
+-- vim.cmd('colorscheme gruvbox')
+-- vim.cmd("colorscheme catppuccin-latte")
+
+-- LIGHT
+-- vim.opt.background = "light"
+-- vim.cmd("colorscheme vercel")
+
+-- DARK
+vim.opt.background = "dark"
+-- vim.cmd("colorscheme monokai_extended")
+-- vim.cmd("colorscheme github_dark_dimmed")
+
+vim.cmd("colorscheme edge")

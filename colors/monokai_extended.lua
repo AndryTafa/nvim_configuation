@@ -15,7 +15,7 @@ local colors = {
   boolean  = "#be84ff", -- purple
 }
 
-vim.opt.background = "dark"
+vim.opt.background = "light"
 vim.opt.termguicolors = true
 
 -- base
