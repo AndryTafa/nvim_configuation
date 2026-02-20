@@ -37,6 +37,7 @@ mason_lspconfig.setup({
     "htmx",
     "kotlin_language_server",
     "expert",
+    "lua_ls",
     -- "lemminx",
   },
   -- Disable auto-enabling installed servers.

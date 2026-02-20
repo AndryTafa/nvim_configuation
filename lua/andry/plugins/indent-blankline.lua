@@ -16,9 +16,11 @@ end)
 
 require("ibl").setup({
     indent = {
+        char = "▏", -- thin left-aligned line (Left One Eighth Block U+258F)
         highlight = highlight,
     },
     scope = {
+        char = "▏",
         highlight = highlight,
     },
 })

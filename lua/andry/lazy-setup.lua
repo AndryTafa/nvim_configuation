@@ -47,6 +47,12 @@ require("lazy").setup({
   { "NLKNguyen/papercolor-theme" },
   { "cocopon/iceberg.vim" },
   {
+    'nmassardot/nvim-preview-svg',
+    config = function()
+      require('nvim-preview-svg').setup({ })
+    end,
+  },
+  {
     'clearaspect/onehalf',
     lazy = false,
     priority = 1000,
@@ -223,6 +229,11 @@ require("lazy").setup({
       -- Space+k in visual mode for 99 visual selection with prompt
       vim.keymap.set("x", "<leader>k", function()
         _99.visual_prompt()
+      end, { noremap = true, silent = true })
+
+      -- Stop all 99 requests with leader+9+s
+      vim.keymap.set({ "n", "v" }, "<leader>9s", function()
+        _99.stop_all_requests()
       end, { noremap = true, silent = true })
     end,
   },

@@ -176,4 +176,5 @@ vim.opt.background = "dark"
 -- vim.cmd("colorscheme monokai_extended")
 -- vim.cmd("colorscheme github_dark_dimmed")
 
-vim.cmd("colorscheme edge")
+-- vim.cmd("colorscheme edge")
+vim.cmd("colorscheme onedark_dark")

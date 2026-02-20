@@ -54,7 +54,7 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 -- easymotion
 vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-bd-e)", { silent = true })
 
-vim.api.nvim_set_keymap('n', '<leader><leader>1', ':colorscheme edge<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader><leader>1', ':colorscheme onedark_dark<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader><leader>2', ':colorscheme catppuccin-latte | colorscheme vercel<CR>', { noremap = true, silent = true })
 
 
