@@ -1,4 +1,4 @@
-local setup, null_ls = pcall(require, "null_ls")
+local setup, null_ls = pcall(require, "null-ls")
 if not setup then
   return
 end
@@ -22,7 +22,9 @@ end
 
 null_ls.setup({
   sources = {
-    formatting.prettier,
+    formatting.prettier.with({
+      prefer_local = "node_modules/.bin",
+    }),
     formatting.stylua,
     diagnostics.eslint_d
   },

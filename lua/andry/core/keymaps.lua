@@ -61,10 +61,33 @@ vim.api.nvim_set_keymap('n', '<leader><leader>2', ':colorscheme catppuccin-latte
 -- vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
 -- Set the keymap to call the globally defined function
 function _G.indent_file()
-  -- Save the current view state
-  local view_state = vim.fn.winsaveview()
-  -- Re-indent the entire file without mappings
-  vim.cmd('normal! gg=G')
-  -- Restore the view state
-  vim.fn.winrestview(view_state)
+  local bufnr = 0
+  local ft = vim.bo.filetype
+  local is_typescript_like = ft == "typescript" or ft == "typescriptreact" or ft == "javascript" or ft == "javascriptreact" or ft == "vue"
+
+  if is_typescript_like then
+    local has_none_ls = false
+    for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+      if client.name == "null-ls" or client.name == "none-ls" then
+        has_none_ls = true
+        break
+      end
+    end
+
+    if has_none_ls then
+      vim.lsp.buf.format({
+        bufnr = bufnr,
+        async = false,
+        filter = function(client)
+          return client.name == "null-ls" or client.name == "none-ls"
+        end,
+      })
+      return
+    end
+  end
+
+  vim.lsp.buf.format({
+    bufnr = bufnr,
+    async = false,
+  })
 end
