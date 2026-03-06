@@ -248,13 +248,13 @@ require("lazy").setup({
     build = ":TSUpdate",
   },
   -- Rainbow delimiters for colored parentheses
-  {
-      "HiPhish/rainbow-delimiters.nvim",
-      dependencies = { "nvim-treesitter/nvim-treesitter" },
-      config = function()
-        require("andry.plugins.rainbow-delimiters")
-      end,
-  },
+  -- {
+  --     "HiPhish/rainbow-delimiters.nvim",
+  --     dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --     config = function()
+  --       require("andry.plugins.rainbow-delimiters")
+  --     end,
+  -- },
   -- Git
   { "lewis6991/gitsigns.nvim" },
   { "tpope/vim-fugitive" },

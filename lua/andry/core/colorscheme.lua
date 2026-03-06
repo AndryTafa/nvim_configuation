@@ -144,7 +144,10 @@ require("rose-pine").setup({
   },
 })
 
-vim.cmd("colorscheme rose-pine-main")
+vim.cmd("colorscheme onedark_dark")
+vim.defer_fn(function()
+  vim.cmd("colorscheme off")
+end, 100)
 --local status, _ = pcall(vim.cmd, "colorscheme onedarkpro")
 --if not status then
 --  print("Colorscheme not found")
@@ -177,4 +180,4 @@ vim.opt.background = "dark"
 -- vim.cmd("colorscheme github_dark_dimmed")
 
 -- vim.cmd("colorscheme edge")
-vim.cmd("colorscheme onedark_dark")
+-- vim.cmd("colorscheme onedark_dark")
