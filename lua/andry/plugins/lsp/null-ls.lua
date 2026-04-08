@@ -4,7 +4,6 @@ if not setup then
 end
 
 local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
 
 -- to setup format on save
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -26,7 +25,8 @@ null_ls.setup({
       prefer_local = "node_modules/.bin",
     }),
     formatting.stylua,
-    diagnostics.eslint_d
+    -- diagnostics.eslint_d removed: no longer a builtin in none-ls.nvim.
+    -- Install none-ls-extras.nvim if eslint diagnostics are needed.
   },
   -- configure format on save
     on_attach = function(current_client, bufnr)

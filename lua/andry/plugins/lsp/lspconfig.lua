@@ -1,3 +1,24 @@
+-- Suppress the lspconfig framework deprecation warning (nvim >= 0.11).
+-- The warning fires in lspconfig's __index metamethod when configs[k] == nil.
+-- Pre-loading every server config we use ensures configs[k] is already set
+-- before the first lspconfig["k"] index, so the deprecation branch is never hit.
+do
+  local configs = require("lspconfig.configs")
+  local servers = {
+    "html", "templ", "basedpyright", "svelte", "jdtls",
+    "kotlin_language_server", "gleam", "gopls", "intelephense",
+    "vtsls", "cssls", "tailwindcss", "htmx", "emmet_ls", "lua_ls",
+  }
+  for _, name in ipairs(servers) do
+    if configs[name] == nil then
+      local ok, cfg = pcall(require, "lspconfig.configs." .. name)
+      if ok then
+        configs[name] = cfg
+      end
+    end
+  end
+end
+
 local lspconfig_status, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status then
   return
@@ -249,16 +270,21 @@ lspconfig["vtsls"].setup({
 })
 
 
-lspconfig["vue_ls"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-  init_options = {
-    typescript = {
-      tsdk = vim.fn.stdpath("data") ..
-        "/mason/packages/typescript/lib"
+-- vue_ls is not yet available in the installed lspconfig; skip to avoid
+-- the "config not found" warning and the framework deprecation it triggers.
+local _vue_ls_ok = pcall(require, "lspconfig.configs.vue_ls")
+if _vue_ls_ok then
+  lspconfig["vue_ls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    init_options = {
+      typescript = {
+        tsdk = vim.fn.stdpath("data") ..
+          "/mason/packages/typescript/lib"
+      }
     }
-  }
-})
+  })
+end
 
 -- lspconfig["rust-analyzer"].setup({
 --   capabilities = capabilities,

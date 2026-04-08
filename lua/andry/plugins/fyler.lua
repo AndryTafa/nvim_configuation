@@ -64,7 +64,7 @@ fyler.setup({
       indentscope = {
         enabled = true,
         group = "FylerIndentMarker",
-        marker = "│",
+        markers = "│",
       },
       -- Key mappings
       mappings = {

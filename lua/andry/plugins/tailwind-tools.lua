@@ -4,6 +4,9 @@ if not status then
 end
 
 tailwind_tools.setup({
+  server = {
+    override = false, -- don't use the deprecated lspconfig path; tailwindcss is set up via lspconfig directly
+  },
   document_color = {
     enabled = true,
     kind = "inline",
