@@ -46,7 +46,7 @@ opt.iskeyword:remove("_")
 
 if vim.g.neovide then
   -- neovide settings
-  opt.guifont = { "CaskaydiaMono Nerd Font Mono", ":h20" }
+  opt.guifont = { "CaskaydiaMono Nerd Font Mono", ":h15", ":w300" }
   -- vim.g.neovide_transparency = 0.95
 
   -- Copy
